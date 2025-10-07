@@ -1,22 +1,13 @@
 # abj.lol placeholder
 
-Playful landing page for `abj.lol` while the fuller experience brews.
+Playful landing page for `abj.lol` starring a broccoli ambassador hyping every weird idea.
 
 ```
-    ┏(＾0＾)┛ ┗(＾0＾) ┓
-        the legendary
-  ___    ___    ___    ___
- / _ \  / _ \  / _ \  / _ \
-| | | || | | || | | || | | |
-| |_| || |_| || |_| || |_| |
- \___/  \___/  \___/  \___/
-
- ab| ab| ab| ab| ab| ab| ab
- j.| j.| j.| j.| j.| j.| j.
- lol lol lol lol lol lol lol
-
- now accepting entirely
-     unserious ideas
+       ,@@@@@@@@@@@@@@@@@@@@@,
+    ,@@@@@@@@@@@@@@@@@@@@@@@@@@@@,
+ ,@@@@@@@@@@@@@@@'     `@@@@@@@@@@@@@@@,
+@ broccoli bestie cheering for your brain @
+   pronounces "abj" like "abbey joy" but with more giggles
 ```
 
 ## Local development
