@@ -23,43 +23,33 @@
       color: #1e2a1d;
     }
     main {
-      width: min(68ch, 100%);
+      width: min(60ch, 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: clamp(1.25rem, 5vw, 2.75rem);
+      gap: clamp(1.25rem, 5vw, 2.5rem);
       text-align: center;
     }
     .tagline {
-      font-size: clamp(1rem, 2.8vw, 1.35rem);
+      font-size: clamp(1rem, 2.4vw, 1.25rem);
       letter-spacing: 0.03em;
-      max-width: 32ch;
+      max-width: 30ch;
     }
     pre {
       margin: 0;
-      width: 100%;
-      max-width: 60rem;
-      font-size: clamp(0.85rem, 2.2vw, 1.35rem);
-      line-height: 1.4;
+      width: min(100%, 44ch);
+      font-size: clamp(0.75rem, 2.1vw, 1.1rem);
+      line-height: 1.35;
       white-space: pre;
       overflow-x: auto;
-      background: rgba(255, 255, 255, 0.85);
-      border: 3px dashed #4caf50;
-      padding: clamp(1.25rem, 6vw, 3rem);
-      border-radius: 1.5rem;
-      box-shadow:
-        0 1.75rem 3.25rem rgba(0, 0, 0, 0.18),
-        0 0 0 0.5rem rgba(114, 191, 68, 0.15);
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px dashed #4caf50;
+      padding: clamp(1rem, 4vw, 2.25rem);
+      border-radius: 1rem;
+      box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.15);
     }
     pre::-webkit-scrollbar {
-      height: 0.6rem;
-    }
-    pre::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    pre::-webkit-scrollbar-thumb {
-      background-color: rgba(76, 175, 80, 0.45);
-      border-radius: 999px;
+      display: none;
     }
     .motion-controls {
       display: flex;
@@ -105,6 +95,14 @@
       white-space: nowrap;
       border: 0;
     }
+    @media (max-width: 520px) {
+      body {
+        padding: 1.5rem;
+      }
+      .motion-note {
+        font-size: 0.85rem;
+      }
+    }
     @media (prefers-color-scheme: dark) {
       body {
         background: radial-gradient(circle at top, #0b1f16 0%, #14331f 45%, #07130c 100%);
@@ -113,9 +111,7 @@
       pre {
         background: rgba(9, 31, 18, 0.78);
         border-color: #81c784;
-        box-shadow:
-          0 1.75rem 3.25rem rgba(0, 0, 0, 0.35),
-          0 0 0 0.5rem rgba(89, 164, 92, 0.3);
+        box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.35);
       }
       .motion-toggle {
         background: rgba(9, 31, 18, 0.85);
@@ -149,32 +145,26 @@
     <h1 class="sr-only" id="site-title">abj.lol broccoli ambassador</h1>
     <p class="tagline" aria-describedby="site-title">Broccoli ambassador on standby for your weirdest ideas.</p>
     <pre id="broccoli-stage" role="img" aria-labelledby="broccoli-caption" aria-live="off">
-        greetings, curious traveler 🌱
-        please meet our resident broccoli ambassador
+          ,@@@@@@@,
+       ,@@@@@@@@@@@@@,
+     ,@@@@@@'   `@@@@@@,
+    ,@@@@@         @@@@@,
+   @@@@@   .-""-.   @@@@@
+   @@@@   /  o o \   @@@@
+   @@@@   |  (_) |   @@@@
+   @@@@   \  ^  /   @@@@
+    @@@@   `-^-`   @@@@
+     @@@@@.     .@@@@@
+      `@@@@@@@ @@@@@@'
+         `@@@@@@@@'
+           || ||
+           || ||
+           VV VV
 
-               ,@@@@@@@@@@@@@@@@@@@@@,
-           ,@@@@@@@@@@@@@@@@@@@@@@@@@@@@,
-        ,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,
-      ,@@@@@@@@@@@@@@@'     `@@@@@@@@@@@@@@@,
-     @@@@@@@@@@@@@@@   .-"""-.   @@@@@@@@@@@@@@
-    @@@@@@@@@@@@@@   /  o   o \   @@@@@@@@@@@@@@
-   @@@@@@@@@@@@@@   ;           ;   @@@@@@@@@@@@@
-   @@@@@@@@@@@@@@   |  .-~~~-.  |   @@@@@@@@@@@@@
-    @@@@@@@@@@@@@@   ; (     ) ;   @@@@@@@@@@@@@@
-     @@@@@@@@@@@@@@   \ '._.' /   @@@@@@@@@@@@@@
-      `@@@@@@@@@@@@@@@  `---'  @@@@@@@@@@@@@@@'
-         `@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@'
-             `@@@@@@@@@@@@@@@@@@@@@@@@@@@'
-                 `@@@@@@@@@@@@@@@@@@@@'
-                       ||  ||  ||
-                       ||  ||  ||
-                       ||  ||  ||
-                       VV  VV  VV
+      hi, curious traveler.
+      broccoli crew saved you a seat.
 
-         this broccoli is contractually obligated
-         to cheer for every weird idea you bring.
-
-         press any imagination key to continue ∿∿∿
+      pause if your eyes need a breather
     </pre>
     <p id="broccoli-caption" class="sr-only">Animated ASCII broccoli waves hello and banters with visitors.</p>
     <div class="motion-controls">
@@ -190,42 +180,36 @@
       const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
       const baseTop = [
-        "        greetings, curious traveler 🌱",
-        "        please meet our resident broccoli ambassador",
-        "",
-        "               ,@@@@@@@@@@@@@@@@@@@@@,",
-        "           ,@@@@@@@@@@@@@@@@@@@@@@@@@@@@,",
-        "        ,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,",
-        "      ,@@@@@@@@@@@@@@@'     `@@@@@@@@@@@@@@@,",
-        "     @@@@@@@@@@@@@@@   .-\"\"\"-.   @@@@@@@@@@@@@@",
-        "    @@@@@@@@@@@@@@   /  o   o \\\\   @@@@@@@@@@@@@@",
-        "   @@@@@@@@@@@@@@   ;           ;   @@@@@@@@@@@@@",
-        "   @@@@@@@@@@@@@@   |  .-~~~-.  |   @@@@@@@@@@@@@",
-        "    @@@@@@@@@@@@@@   ; (     ) ;   @@@@@@@@@@@@@@",
-        "     @@@@@@@@@@@@@@   \\\\ '._.' /   @@@@@@@@@@@@@@",
-        "      `@@@@@@@@@@@@@@@  `---'  @@@@@@@@@@@@@@@'",
-        "         `@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@'",
-        "             `@@@@@@@@@@@@@@@@@@@@@@@@@@@'",
-        "                 `@@@@@@@@@@@@@@@@@@@@'",
-        "                       ||  ||  ||",
-        "                       ||  ||  ||",
-        "                       ||  ||  ||",
-        "                       VV  VV  VV"
+        "          ,@@@@@@@,",
+        "       ,@@@@@@@@@@@@@,",
+        "     ,@@@@@@'   `@@@@@@,",
+        "    ,@@@@@         @@@@@,",
+        "   @@@@@   .-\"\"-.   @@@@@",
+        "   @@@@   /  o o \\   @@@@",
+        "   @@@@   |  (_) |   @@@@",
+        "   @@@@   \\  ^  /   @@@@",
+        "    @@@@   `-^-`   @@@@",
+        "     @@@@@.     .@@@@@",
+        "      `@@@@@@@ @@@@@@'",
+        "         `@@@@@@@@'",
+        "           || ||",
+        "           || ||",
+        "           VV VV"
       ];
 
       const defaultMessage = [
-        "         this broccoli is contractually obligated",
-        "         to cheer for every weird idea you bring.",
+        "      hi, curious traveler.",
+        "      broccoli crew saved you a seat.",
         "",
-        "         press any imagination key to continue ∿∿∿"
+        "      pause if your eyes need a breather"
       ];
 
       function buildFrame({ eyes, cheeks, mouth, shoulders, message }) {
         const lines = [...baseTop];
-        if (eyes) lines[8] = eyes;
-        if (cheeks) lines[9] = cheeks;
-        if (mouth) lines[10] = mouth;
-        if (shoulders) lines[11] = shoulders;
+        if (eyes) lines[5] = eyes;
+        if (cheeks) lines[6] = cheeks;
+        if (mouth) lines[7] = mouth;
+        if (shoulders) lines[8] = shoulders;
         lines.push("");
         lines.push(...(message || defaultMessage));
         return lines.join("\n");
@@ -234,60 +218,48 @@
       const frames = [
         buildFrame({}),
         buildFrame({
-          eyes: "    @@@@@@@@@@@@@@   /  o   - \\\\   @@@@@@@@@@@@@@",
-          cheeks: "   @@@@@@@@@@@@@@   ;  \\\\___/  ;   @@@@@@@@@@@@@",
-          mouth: "   @@@@@@@@@@@@@@   |  ( ^ )  |   @@@@@@@@@@@@@",
+          eyes: "   @@@@   /  o  - \\   @@@@",
+          cheeks: "   @@@@   |  ( ) |   @@@@",
+          mouth: "   @@@@   \\  ^  /   @@@@",
           message: [
-            "         \"hello hello\" the florets whisper,",
-            "         \"i'm abbey-joy-adjacent, your broccoli hype.\"",
+            "      broccoli bestie ready for duty.",
+            "      mobile pals can read every bit.",
             "",
-            "         ask it about the latest notebook of ridiculous schemes."
+            "      bring your silliest ideas to test."
           ]
         }),
         buildFrame({
-          eyes: "    @@@@@@@@@@@@@@   /  O   O \\\\   @@@@@@@@@@@@@@",
-          cheeks: "   @@@@@@@@@@@@@@   ;   \\\\_/   ;   @@@@@@@@@@@@@",
-          mouth: "   @@@@@@@@@@@@@@   |  \\\\ o /  |   @@@@@@@@@@@@@",
-          shoulders: "    @@@@@@@@@@@@@@  / (     ) \\\\  @@@@@@@@@@@@@@",
+          eyes: "   @@@@   /  O  O \\   @@@@",
+          cheeks: "   @@@@   |  \\_/ |   @@@@",
+          mouth: "   @@@@   \\  u  /   @@@@",
           message: [
-            "         it practices dramatic waves for every passing browser.",
-            "         mobile visitors now get extra sparkle and elbow room.",
+            "      whisper ideas; it nods along.",
+            "      snack suggestions also welcome.",
             "",
-            "         please proceed; we brought snacks shaped like ideas."
+            "      mostly here for playful scheming."
           ]
         }),
         buildFrame({
-          eyes: "    @@@@@@@@@@@@@@   /  -   o \\\\   @@@@@@@@@@@@@@",
-          cheeks: "   @@@@@@@@@@@@@@   ;   ^_^   ;   @@@@@@@@@@@@@",
-          mouth: "   @@@@@@@@@@@@@@   |  ( > )  |   @@@@@@@@@@@@@",
+          eyes: "   @@@@   /  ^  o \\   @@@@",
+          cheeks: "   @@@@   |  ( ) |   @@@@",
+          mouth: "   @@@@   \\  >  /   @@@@",
           message: [
-            "         \"tell me your strangest prototype,\" it stage-whispers,",
-            "         while adjusting its imaginary, very fashionable hat.",
+            "      it keeps playful nonsense ready.",
+            "      your idea already made the cut.",
             "",
-            "         rumors say it can juggle punchlines and css grids."
+            "      share one more and it will shimmy."
           ]
         }),
         buildFrame({
-          eyes: "    @@@@@@@@@@@@@@   /  o   o \\\\   @@@@@@@@@@@@@@",
-          cheeks: "   @@@@@@@@@@@@@@   ;  (\\_/ ) ;   @@@@@@@@@@@@@",
-          mouth: "   @@@@@@@@@@@@@@   |  ( ♥ )  |   @@@@@@@@@@@@@",
+          eyes: "   @@@@   /  ^  ^ \\   @@@@",
+          cheeks: "   @@@@   |  ( ) |   @@@@",
+          mouth: "   @@@@   \\  w  /   @@@@",
+          shoulders: "    @@@@    \\_/    @@@@",
           message: [
-            "         broccoli fact: it gives pep talks in three dialects,",
-            "         one of which is just enthusiastic jazz hands.",
+            "      loop's done. breathe and plot.",
+            "      it cheers for every brainstorm.",
             "",
-            "         it swears the band is warming up just off-screen."
-          ]
-        }),
-        buildFrame({
-          eyes: "    @@@@@@@@@@@@@@   /  o   o \\\\   @@@@@@@@@@@@@@",
-          cheeks: "   @@@@@@@@@@@@@@   ;  \\o o/  ;   @@@@@@@@@@@@@",
-          mouth: "   @@@@@@@@@@@@@@   |  ( u )  |   @@@@@@@@@@@@@",
-          shoulders: "    @@@@@@@@@@@@@@   ; (     ) ;   @@@@@@@@@@@@@@",
-          message: [
-            "         loop complete. breathe in, plot brilliance, repeat.",
-            "         it'll be right here cheering between each brainstorm.",
-            "",
-            "         press play again if you need another pep pep parade."
+            "      press play for another cheer loop."
           ]
         })
       ];
