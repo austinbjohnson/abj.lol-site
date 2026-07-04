@@ -3,91 +3,215 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>abj.lol</title>
+  <meta name="description" content="abj.lol is a time-aware broccoli art oracle for tiny public-domain offerings.">
+  <title>abj.lol — The Broccoli Hours</title>
   <style>
     :root {
       color-scheme: light dark;
+      --bg-a: #f6f1dc;
+      --bg-b: #dff4c6;
+      --bg-c: #f9f6ea;
+      --ink: #24301f;
+      --muted: rgba(36, 48, 31, 0.72);
+      --card: rgba(255, 252, 238, 0.88);
+      --line: rgba(65, 95, 48, 0.28);
+      --accent: #4f7d32;
+      --accent-ink: #1f3a15;
+      --shadow: rgba(55, 45, 20, 0.18);
     }
-    html {
-      overflow-x: hidden;
-    }
-    * {
-      box-sizing: border-box;
-    }
+
+    * { box-sizing: border-box; }
+
+    html { min-height: 100%; }
+
     body {
       margin: 0;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: clamp(1.5rem, 6vw, 4rem);
-      font-family: "Courier New", Courier, monospace;
-      background: radial-gradient(circle at top, #f1ffe3 0%, #d6ffb7 45%, #e9ffe6 100%);
-      color: #1e2a1d;
-      overflow-x: hidden;
+      padding: clamp(1.25rem, 5vw, 4rem);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      background:
+        radial-gradient(circle at 15% 10%, var(--bg-b) 0 18rem, transparent 32rem),
+        radial-gradient(circle at 80% 0%, var(--bg-c) 0 16rem, transparent 28rem),
+        linear-gradient(135deg, var(--bg-a), var(--bg-c));
+      color: var(--ink);
+      transition: background 700ms ease, color 700ms ease;
     }
+
     main {
-      width: min(60ch, 100%);
-      display: flex;
-      flex-direction: column;
+      width: min(72rem, 100%);
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.85fr) minmax(18rem, 1.15fr);
+      gap: clamp(1.25rem, 4vw, 3rem);
       align-items: center;
-      gap: clamp(1.25rem, 5vw, 2.5rem);
+    }
+
+    .oracle-shell,
+    .offering-card {
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: 1.4rem;
+      box-shadow: 0 1.2rem 3rem var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .oracle-shell {
+      padding: clamp(1rem, 3vw, 2rem);
       text-align: center;
     }
+
+    .eyebrow {
+      margin: 0 0 0.7rem;
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.15rem, 8vw, 4.75rem);
+      line-height: 0.92;
+      letter-spacing: -0.055em;
+    }
+
     .tagline {
-      font-size: clamp(1rem, 2.4vw, 1.25rem);
-      letter-spacing: 0.03em;
-      max-width: 30ch;
+      margin: 1rem auto 0;
+      max-width: 32ch;
+      color: var(--muted);
+      line-height: 1.55;
     }
+
     pre {
-      margin: 0 auto;
-      width: min(100%, 44ch);
-      font-size: clamp(0.75rem, 2.1vw, 1.1rem);
-      line-height: 1.35;
-      white-space: pre;
-      overflow-x: hidden;
-      background: rgba(255, 255, 255, 0.9);
-      border: 2px dashed #4caf50;
-      padding: clamp(1rem, 4vw, 2.25rem);
+      margin: 1.5rem auto 0;
+      width: min(100%, 42ch);
+      overflow-x: auto;
+      padding: 1rem;
+      border: 1px dashed var(--line);
       border-radius: 1rem;
-      box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.15);
+      background: rgba(255, 255, 255, 0.38);
+      color: var(--accent-ink);
+      font-size: clamp(0.68rem, 1.7vw, 0.95rem);
+      line-height: 1.22;
+      text-align: left;
+      white-space: pre;
     }
-    pre::-webkit-scrollbar {
-      display: none;
+
+    .offering-card {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(1.25rem, 4vw, 2.4rem);
     }
-    .motion-controls {
+
+    .offering-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(transparent 2.15rem, rgba(80, 60, 30, 0.09) 2.2rem) 0 0 / 100% 2.2rem,
+        linear-gradient(90deg, transparent 0 3.4rem, rgba(150, 70, 60, 0.16) 3.45rem, transparent 3.5rem);
+      opacity: 0.45;
+    }
+
+    .card-content { position: relative; }
+
+    .room-row {
       display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      align-items: center;
-      font-size: 0.95rem;
-      color: inherit;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.7rem 1rem;
+      align-items: baseline;
+      margin-bottom: 1.5rem;
+      color: var(--muted);
+      font-size: 0.86rem;
     }
-    .motion-toggle {
+
+    .room-name {
+      color: var(--accent-ink);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.85rem, 5vw, 3.45rem);
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+    }
+
+    .byline {
+      margin: 0.65rem 0 1.6rem;
+      color: var(--muted);
+    }
+
+    blockquote {
+      margin: 0;
+      padding: 0 0 0 1rem;
+      border-left: 0.22rem solid var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.15rem, 3vw, 1.7rem);
+      line-height: 1.45;
+    }
+
+    .curator-note {
+      margin: 1.4rem 0 0;
+      color: var(--accent-ink);
+      line-height: 1.6;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.6rem;
+    }
+
+    button,
+    a.button {
       appearance: none;
-      border: 2px solid rgba(76, 175, 80, 0.6);
-      background: rgba(255, 255, 255, 0.85);
-      color: inherit;
-      font-family: inherit;
-      font-size: 1rem;
-      padding: 0.5rem 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.7rem;
+      padding: 0.65rem 1rem;
       border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.55);
+      color: var(--accent-ink);
+      font: inherit;
+      text-decoration: none;
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
     }
-    .motion-toggle:hover {
+
+    button:hover,
+    a.button:hover {
       transform: translateY(-1px);
-      box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15);
+      box-shadow: 0 0.55rem 1.2rem rgba(0, 0, 0, 0.12);
+      background: rgba(255, 255, 255, 0.78);
     }
-    .motion-toggle:focus-visible {
-      outline: 3px dashed #4caf50;
+
+    button:focus-visible,
+    a.button:focus-visible {
+      outline: 3px dashed var(--accent);
       outline-offset: 4px;
     }
-    .motion-note {
-      max-width: 30ch;
-      color: rgba(30, 42, 29, 0.8);
+
+    .credit {
+      margin: 1.5rem 0 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
     }
+
+    .credit a { color: inherit; }
+
     .sr-only {
       position: absolute;
       width: 1px;
@@ -99,99 +223,158 @@
       white-space: nowrap;
       border: 0;
     }
-    @media (max-width: 520px) {
-      body {
-        padding: 1.5rem;
-      }
-      .motion-note {
-        font-size: 0.85rem;
-      }
-    }
+
     @media (prefers-color-scheme: dark) {
-      body {
-        background: radial-gradient(circle at top, #0b1f16 0%, #14331f 45%, #07130c 100%);
-        color: #f5fff0;
+      :root {
+        --bg-a: #09100d;
+        --bg-b: #17301f;
+        --bg-c: #16120d;
+        --ink: #f4f2dc;
+        --muted: rgba(244, 242, 220, 0.72);
+        --card: rgba(18, 25, 18, 0.82);
+        --line: rgba(207, 223, 177, 0.24);
+        --accent: #a5c96b;
+        --accent-ink: #dff7a2;
+        --shadow: rgba(0, 0, 0, 0.42);
       }
-      pre {
-        background: rgba(9, 31, 18, 0.78);
-        border-color: #81c784;
-        box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.35);
-      }
-      .motion-toggle {
-        background: rgba(9, 31, 18, 0.85);
-        border-color: rgba(129, 199, 132, 0.7);
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
-      }
-      .motion-note {
-        color: rgba(245, 255, 240, 0.7);
-      }
+
+      pre,
+      button,
+      a.button { background: rgba(0, 0, 0, 0.22); }
     }
-    @media (max-width: 640px) {
-      body {
-        padding: clamp(1rem, 8vw, 2rem);
-      }
-      main {
-        gap: clamp(1rem, 6vw, 2.25rem);
-      }
-      .tagline {
-        font-size: clamp(0.95rem, 4.5vw, 1.2rem);
-      }
-      pre {
-        font-size: clamp(0.75rem, 3.6vw, 1.1rem);
-        padding: clamp(1rem, 9vw, 2.25rem);
-        border-width: 2px;
+
+    @media (max-width: 760px) {
+      body { align-items: flex-start; }
+      main { grid-template-columns: 1fr; }
+      .oracle-shell { order: 2; }
+      .offering-card { order: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
       }
     }
   </style>
 </head>
 <body>
   <main>
-    <h1 class="sr-only" id="site-title">abj.lol broccoli ambassador</h1>
-    <p class="tagline" aria-describedby="site-title">Broccoli ambassador on standby for your weirdest ideas.</p>
-    <pre id="broccoli-stage" role="img" aria-labelledby="broccoli-caption" aria-live="off">
-          ,@@@@@@@,
-       ,@@@@@@@@@@@@@,
-     ,@@@@@@'   `@@@@@@,
-    ,@@@@@         @@@@@,
-   @@@@@   .-""-.   @@@@@
-   @@@@   /  o o \   @@@@
-   @@@@   |  (_) |   @@@@
-   @@@@   \  ^  /   @@@@
-    @@@@   `-^-`   @@@@
-     @@@@@.     .@@@@@
-      `@@@@@@@ @@@@@@'
-         `@@@@@@@@'
-           || ||
-           || ||
-           VV VV
+    <section class="oracle-shell" aria-labelledby="site-title">
+      <p class="eyebrow">abj.lol presents</p>
+      <h1 id="site-title">The Broccoli Hours</h1>
+      <p class="tagline">A tiny art oracle. The broccoli checks the hour, opens a room, and leaves one public-domain offering on the desk.</p>
+      <pre id="broccoli-stage" role="img" aria-label="ASCII broccoli curator"></pre>
+    </section>
 
-      hi, curious traveler.
-      broccoli crew saved you a seat.
-
-      pause if your eyes need a breather
-    </pre>
-    <p id="broccoli-caption" class="sr-only">Animated ASCII broccoli waves hello and banters with visitors.</p>
-    <div class="motion-controls">
-      <button type="button" class="motion-toggle" data-motion-toggle aria-pressed="true">Pause animation</button>
-      <span class="motion-note" data-motion-note hidden>Animation paused to respect reduced-motion settings.</span>
-    </div>
+    <article class="offering-card" aria-labelledby="offering-title">
+      <div class="card-content">
+        <div class="room-row">
+          <span class="room-name" id="room-name">Loading room…</span>
+          <time id="local-time" datetime="">local time</time>
+        </div>
+        <h2 id="offering-title">Consulting the broccoli…</h2>
+        <p class="byline" id="offering-byline"></p>
+        <blockquote id="offering-text"></blockquote>
+        <p class="curator-note" id="curator-note"></p>
+        <div class="actions">
+          <button type="button" id="surprise-button">Surprise me</button>
+          <a class="button" id="permalink" href="/">Permalink</a>
+          <a class="button" id="source-link" href="https://www.gutenberg.org/" rel="noreferrer">Source</a>
+        </div>
+        <p class="credit">All first-pass offerings are public-domain excerpts. Bring your own favorites later; the broccoli recommends links or short excerpts for copyrighted work.</p>
+      </div>
+    </article>
   </main>
+
   <script>
     (function () {
-      const stage = document.getElementById("broccoli-stage");
-      const toggleButton = document.querySelector("[data-motion-toggle]");
-      const motionNote = document.querySelector("[data-motion-note]");
-      const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const collection = [
+        {
+          id: "dawn-dickinson-hope",
+          room: "The Room Before Emails",
+          hours: [4, 5, 6],
+          title: "Hope is the thing with feathers",
+          artist: "Emily Dickinson",
+          source: "Poems by Emily Dickinson, Series Two",
+          sourceUrl: "https://www.gutenberg.org/ebooks/12242",
+          text: "Hope is the thing with feathers\nThat perches in the soul,\nAnd sings the tune without the words,\nAnd never stops at all,",
+          note: "The broccoli found a small bird already singing before the calendar could object.",
+          palette: ["#d9ecff", "#fff2c7", "#f8fbef"]
+        },
+        {
+          id: "morning-blake-sunflower",
+          room: "Morning Invocation Desk",
+          hours: [7, 8, 9, 10],
+          title: "Ah! Sun-flower",
+          artist: "William Blake",
+          source: "Songs of Experience",
+          sourceUrl: "https://www.gutenberg.org/ebooks/1934",
+          text: "Ah Sun-flower! weary of time,\nWho countest the steps of the Sun:\nSeeking after that sweet golden clime\nWhere the travellers journey is done.",
+          note: "A yellow thing, looking up. The broccoli respects the bit where longing becomes navigation.",
+          palette: ["#fff0a8", "#dff5b4", "#fffaf0"]
+        },
+        {
+          id: "midday-stevens-jar",
+          room: "Midday Nonsense with Structure",
+          hours: [11, 12, 13, 14],
+          title: "Anecdote of the Jar",
+          artist: "Wallace Stevens",
+          source: "Harmonium",
+          sourceUrl: "https://www.gutenberg.org/ebooks/3187",
+          text: "I placed a jar in Tennessee,\nAnd round it was, upon a hill.\nIt made the slovenly wilderness\nSurround that hill.",
+          note: "The broccoli appreciates objects that quietly reorganize the room around them.",
+          palette: ["#d8f6ce", "#f8ead2", "#f7fff4"]
+        },
+        {
+          id: "slump-wordsworth-daffodils",
+          room: "Slump Chapel",
+          hours: [15, 16, 17],
+          title: "I Wandered Lonely as a Cloud",
+          artist: "William Wordsworth",
+          source: "Poems in Two Volumes",
+          sourceUrl: "https://www.gutenberg.org/ebooks/12145",
+          text: "I wandered lonely as a cloud\nThat floats on high o'er vales and hills,\nWhen all at once I saw a crowd,\nA host, of golden daffodils;",
+          note: "If the afternoon has gone soft at the edges, the broccoli prescribes one bright crowd of flowers.",
+          palette: ["#ece4ff", "#f7ebb0", "#fffaf2"]
+        },
+        {
+          id: "golden-keats-bright-star",
+          room: "Golden Hour Annex",
+          hours: [18, 19, 20],
+          title: "Bright Star",
+          artist: "John Keats",
+          source: "Poems 1817",
+          sourceUrl: "https://www.gutenberg.org/ebooks/8209",
+          text: "Bright star, would I were stedfast as thou art—\nNot in lone splendour hung aloft the night\nAnd watching, with eternal lids apart,\nLike nature's patient, sleepless Eremite,",
+          note: "The broccoli says this is when the light briefly gets honest and a little dramatic.",
+          palette: ["#ffd7a1", "#f4edc9", "#fff7df"]
+        },
+        {
+          id: "night-shelley-moon",
+          room: "The Unsent Thought Gallery",
+          hours: [21, 22, 23, 0, 1, 2, 3],
+          title: "To the Moon",
+          artist: "Percy Bysshe Shelley",
+          source: "The Complete Poetical Works of Percy Bysshe Shelley",
+          sourceUrl: "https://www.gutenberg.org/ebooks/4800",
+          text: "Art thou pale for weariness\nOf climbing heaven and gazing on the earth,\nWandering companionless\nAmong the stars that have a different birth,—",
+          note: "Open late for companionless satellites, unsent thoughts, and vegetables with feelings.",
+          palette: ["#121a35", "#223f3a", "#0b0f1e"]
+        }
+      ];
 
-      const baseTop = [
+      const broccoli = [
         "          ,@@@@@@@,",
         "       ,@@@@@@@@@@@@@,",
         "     ,@@@@@@'   `@@@@@@,",
         "    ,@@@@@         @@@@@,",
         "   @@@@@   .-\"\"-.   @@@@@",
-        "   @@@@   /  o o \\   @@@@",
-        "   @@@@   |  (_) |   @@@@",
-        "   @@@@   \\  ^  /   @@@@",
+        "   @@@@   /  o o  \\   @@@@",
+        "   @@@@   |  (_)  |   @@@@",
+        "   @@@@   \\  ^   /   @@@@",
         "    @@@@   `-^-`   @@@@",
         "     @@@@@.     .@@@@@",
         "      `@@@@@@@ @@@@@@'",
@@ -199,129 +382,78 @@
         "           || ||",
         "           || ||",
         "           VV VV"
-      ];
+      ].join("\n");
 
-      const defaultMessage = [
-        "      hi, curious traveler.",
-        "      broccoli crew saved you a seat.",
-        "",
-        "      pause if your eyes need a breather"
-      ];
+      const stage = document.getElementById("broccoli-stage");
+      const roomName = document.getElementById("room-name");
+      const localTime = document.getElementById("local-time");
+      const title = document.getElementById("offering-title");
+      const byline = document.getElementById("offering-byline");
+      const text = document.getElementById("offering-text");
+      const note = document.getElementById("curator-note");
+      const sourceLink = document.getElementById("source-link");
+      const permalink = document.getElementById("permalink");
+      const surpriseButton = document.getElementById("surprise-button");
 
-      function buildFrame({ eyes, cheeks, mouth, shoulders, message }) {
-        const lines = [...baseTop];
-        if (eyes) lines[5] = eyes;
-        if (cheeks) lines[6] = cheeks;
-        if (mouth) lines[7] = mouth;
-        if (shoulders) lines[8] = shoulders;
-        lines.push("");
-        lines.push(...(message || defaultMessage));
-        return lines.join("\n");
+      function dayOfYear(date) {
+        const start = new Date(date.getFullYear(), 0, 0);
+        return Math.floor((date - start) / 86400000);
       }
 
-      const frames = [
-        buildFrame({}),
-        buildFrame({
-          eyes: "   @@@@   /  o  - \\   @@@@",
-          cheeks: "   @@@@   |  ( ) |   @@@@",
-          mouth: "   @@@@   \\  ^  /   @@@@",
-          message: [
-            "      broccoli bestie ready for duty.",
-            "      mobile pals can read every bit.",
-            "",
-            "      bring your silliest ideas to test."
-          ]
-        }),
-        buildFrame({
-          eyes: "   @@@@   /  O  O \\   @@@@",
-          cheeks: "   @@@@   |  \\_/ |   @@@@",
-          mouth: "   @@@@   \\  u  /   @@@@",
-          message: [
-            "      whisper ideas; it nods along.",
-            "      snack suggestions also welcome.",
-            "",
-            "      mostly here for playful scheming."
-          ]
-        }),
-        buildFrame({
-          eyes: "   @@@@   /  ^  o \\   @@@@",
-          cheeks: "   @@@@   |  ( ) |   @@@@",
-          mouth: "   @@@@   \\  >  /   @@@@",
-          message: [
-            "      it keeps playful nonsense ready.",
-            "      your idea already made the cut.",
-            "",
-            "      share one more and it will shimmy."
-          ]
-        }),
-        buildFrame({
-          eyes: "   @@@@   /  ^  ^ \\   @@@@",
-          cheeks: "   @@@@   |  ( ) |   @@@@",
-          mouth: "   @@@@   \\  w  /   @@@@",
-          shoulders: "    @@@@    \\_/    @@@@",
-          message: [
-            "      loop's done. breathe and plot.",
-            "      it cheers for every brainstorm.",
-            "",
-            "      press play for another cheer loop."
-          ]
-        })
-      ];
-
-      const frameDuration = 30000 / frames.length;
-      let frameIndex = 0;
-      let timerId = null;
-
-      const renderFrame = (index) => {
-        stage.textContent = frames[index];
-      };
-
-      const startAnimation = () => {
-        if (timerId !== null) return;
-        renderFrame(frameIndex);
-        timerId = window.setInterval(() => {
-          frameIndex = (frameIndex + 1) % frames.length;
-          renderFrame(frameIndex);
-        }, frameDuration);
-      };
-
-      const stopAnimation = () => {
-        if (timerId !== null) {
-          window.clearInterval(timerId);
-          timerId = null;
-        }
-        frameIndex = 0;
-        renderFrame(frameIndex);
-      };
-
-      const setPlaying = (shouldPlay) => {
-        if (shouldPlay) {
-          startAnimation();
-          toggleButton.textContent = "Pause animation";
-          toggleButton.setAttribute("aria-pressed", "true");
-          motionNote.hidden = true;
-        } else {
-          stopAnimation();
-          toggleButton.textContent = "Play animation";
-          toggleButton.setAttribute("aria-pressed", "false");
-          motionNote.hidden = !motionQuery.matches;
-        }
-      };
-
-      toggleButton.addEventListener("click", () => {
-        const willPlay = timerId === null;
-        setPlaying(willPlay);
-      });
-
-      motionQuery.addEventListener("change", (event) => {
-        setPlaying(!event.matches);
-      });
-
-      if (motionQuery.matches) {
-        setPlaying(false);
-      } else {
-        setPlaying(true);
+      function getPieceByClock(date) {
+        const hour = date.getHours();
+        const candidates = collection.filter((piece) => piece.hours.includes(hour));
+        return candidates[dayOfYear(date) % candidates.length] || collection[0];
       }
+
+      function getPieceFromUrl() {
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("piece");
+        return collection.find((piece) => piece.id === id);
+      }
+
+      function applyPalette(piece) {
+        const [a, b, c] = piece.palette;
+        document.documentElement.style.setProperty("--bg-a", a);
+        document.documentElement.style.setProperty("--bg-b", b);
+        document.documentElement.style.setProperty("--bg-c", c);
+        const night = piece.hours.some((hour) => hour >= 21 || hour <= 3);
+        if (night) {
+          document.documentElement.style.setProperty("--ink", "#f6f2dd");
+          document.documentElement.style.setProperty("--muted", "rgba(246, 242, 221, 0.72)");
+          document.documentElement.style.setProperty("--card", "rgba(13, 18, 26, 0.84)");
+          document.documentElement.style.setProperty("--line", "rgba(246, 242, 221, 0.22)");
+          document.documentElement.style.setProperty("--accent", "#b7d987");
+          document.documentElement.style.setProperty("--accent-ink", "#e4f5bd");
+        }
+      }
+
+      function render(piece, shouldUpdateUrl) {
+        const now = new Date();
+        applyPalette(piece);
+        stage.textContent = broccoli + "\n\n      " + piece.room.toLowerCase() + "\n      has opened.";
+        roomName.textContent = piece.room;
+        localTime.textContent = now.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+        localTime.dateTime = now.toISOString();
+        title.textContent = piece.title;
+        byline.textContent = piece.artist + " · " + piece.source;
+        text.textContent = piece.text;
+        note.textContent = piece.note;
+        sourceLink.href = piece.sourceUrl;
+        permalink.href = "?piece=" + encodeURIComponent(piece.id);
+        if (shouldUpdateUrl) {
+          window.history.replaceState({}, "", "?piece=" + encodeURIComponent(piece.id));
+        }
+      }
+
+      surpriseButton.addEventListener("click", () => {
+        const currentId = new URLSearchParams(window.location.search).get("piece");
+        const remaining = collection.filter((piece) => piece.id !== currentId);
+        const piece = remaining[Math.floor(Math.random() * remaining.length)] || collection[0];
+        render(piece, true);
+      });
+
+      render(getPieceFromUrl() || getPieceByClock(new Date()), Boolean(getPieceFromUrl()));
     })();
   </script>
 </body>
