@@ -3,21 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="abj.lol is a time-aware broccoli art oracle for tiny public-domain offerings.">
-  <title>abj.lol — The Broccoli Hours</title>
+  <meta name="description" content="A curated poem selected by the hour.">
+  <title>abj.lol</title>
   <style>
     :root {
       color-scheme: light dark;
-      --bg-a: #f6f1dc;
-      --bg-b: #dff4c6;
-      --bg-c: #f9f6ea;
-      --ink: #24301f;
-      --muted: rgba(36, 48, 31, 0.72);
-      --card: rgba(255, 252, 238, 0.88);
-      --line: rgba(65, 95, 48, 0.28);
-      --accent: #4f7d32;
-      --accent-ink: #1f3a15;
-      --shadow: rgba(55, 45, 20, 0.18);
+      --paper: #fbfaf6;
+      --ink: #171717;
+      --muted: #6a6760;
+      --line: #ded8ca;
+      --accent: #9b3f2f;
+      --surface: rgba(251, 250, 246, 0.92);
     }
 
     * { box-sizing: border-box; }
@@ -27,227 +23,293 @@
     body {
       margin: 0;
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: clamp(1.25rem, 5vw, 4rem);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-      background:
-        radial-gradient(circle at 15% 10%, var(--bg-b) 0 18rem, transparent 32rem),
-        radial-gradient(circle at 80% 0%, var(--bg-c) 0 16rem, transparent 28rem),
-        linear-gradient(135deg, var(--bg-a), var(--bg-c));
+      background: var(--paper);
       color: var(--ink);
-      transition: background 700ms ease, color 700ms ease;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body[data-theme="gallery"] {
+      --paper: #f7f4ec;
+      --ink: #15120f;
+      --muted: #716b61;
+      --line: #d8d0c0;
+      --accent: #8f2f22;
+      --surface: rgba(255, 252, 244, 0.9);
+    }
+
+    body[data-theme="index"] {
+      --paper: #f2efe7;
+      --ink: #161616;
+      --muted: #5f5a51;
+      --line: #cfc6b7;
+      --accent: #235c4b;
+      --surface: #fffdf5;
+      background:
+        linear-gradient(90deg, rgba(180, 45, 30, 0.08) 0 1px, transparent 1px 100%) 3.1rem 0 / 100% 100%,
+        repeating-linear-gradient(#f8f4ea 0 2.45rem, #d9d0be 2.5rem 2.55rem);
+    }
+
+    body[data-theme="broadcast"] {
+      --paper: #070707;
+      --ink: #f7f7ef;
+      --muted: #a9a99f;
+      --line: #2f2f2a;
+      --accent: #e7ff55;
+      --surface: rgba(10, 10, 10, 0.84);
+      background:
+        radial-gradient(circle at 50% 20%, rgba(231, 255, 85, 0.18), transparent 28rem),
+        linear-gradient(#070707, #11110d);
+    }
+
+    body[data-theme="quiet"] {
+      --paper: #eef3f0;
+      --ink: #1f2925;
+      --muted: #65736c;
+      --line: #c9d7d0;
+      --accent: #496d61;
+      --surface: rgba(250, 253, 251, 0.72);
+      background:
+        radial-gradient(circle at 80% 15%, rgba(130, 168, 151, 0.24), transparent 26rem),
+        linear-gradient(145deg, #eef3f0, #f7f4ee);
+    }
+
+    body[data-theme="constellation"] {
+      --paper: #080b18;
+      --ink: #f7f1df;
+      --muted: #aaa5c7;
+      --line: #343855;
+      --accent: #ffcf6b;
+      --surface: rgba(12, 16, 34, 0.78);
+      background:
+        radial-gradient(circle at 15% 25%, #ffffff 0 1px, transparent 2px),
+        radial-gradient(circle at 65% 18%, #ffffff 0 1px, transparent 2px),
+        radial-gradient(circle at 80% 70%, #ffffff 0 1px, transparent 2px),
+        radial-gradient(circle at 30% 82%, #ffffff 0 1px, transparent 2px),
+        linear-gradient(155deg, #060713, #101632 62%, #211326);
     }
 
     main {
-      width: min(72rem, 100%);
+      min-height: 100vh;
       display: grid;
-      grid-template-columns: minmax(16rem, 0.85fr) minmax(18rem, 1.15fr);
-      gap: clamp(1.25rem, 4vw, 3rem);
+      grid-template-rows: auto 1fr auto;
+      padding: clamp(1rem, 3vw, 2.75rem);
+    }
+
+    .topbar,
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
       align-items: center;
-    }
-
-    .oracle-shell,
-    .offering-card {
-      border: 1px solid var(--line);
-      background: var(--card);
-      border-radius: 1.4rem;
-      box-shadow: 0 1.2rem 3rem var(--shadow);
-      backdrop-filter: blur(12px);
-    }
-
-    .oracle-shell {
-      padding: clamp(1rem, 3vw, 2rem);
-      text-align: center;
-    }
-
-    .eyebrow {
-      margin: 0 0 0.7rem;
       color: var(--muted);
+      font-size: 0.84rem;
+      letter-spacing: 0.04em;
+    }
+
+    .brand {
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .theme-picker {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.35rem;
+    }
+
+    button,
+    a.button {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 0.42rem 0.7rem;
+      font: inherit;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    button[aria-pressed="true"] {
+      border-color: var(--accent);
+      color: var(--ink);
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .poem-shell {
+      align-self: center;
+      width: min(68rem, 100%);
+      margin: clamp(2rem, 6vw, 5rem) auto;
+      transition: all 240ms ease;
+    }
+
+    .kicker {
+      margin: 0 0 1rem;
+      color: var(--accent);
       font-size: 0.78rem;
+      font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
     }
 
     h1 {
       margin: 0;
+      max-width: 12ch;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.15rem, 8vw, 4.75rem);
-      line-height: 0.92;
-      letter-spacing: -0.055em;
+      font-size: clamp(3rem, 10vw, 9rem);
+      line-height: 0.9;
+      letter-spacing: -0.075em;
     }
 
-    .tagline {
-      margin: 1rem auto 0;
-      max-width: 32ch;
+    .meta {
+      margin: 1rem 0 clamp(2rem, 5vw, 4rem);
       color: var(--muted);
-      line-height: 1.55;
-    }
-
-    pre {
-      margin: 1.5rem auto 0;
-      width: min(100%, 42ch);
-      overflow-x: auto;
-      padding: 1rem;
-      border: 1px dashed var(--line);
-      border-radius: 1rem;
-      background: rgba(255, 255, 255, 0.38);
-      color: var(--accent-ink);
-      font-size: clamp(0.68rem, 1.7vw, 0.95rem);
-      line-height: 1.22;
-      text-align: left;
-      white-space: pre;
-    }
-
-    .offering-card {
-      position: relative;
-      overflow: hidden;
-      padding: clamp(1.25rem, 4vw, 2.4rem);
-    }
-
-    .offering-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(transparent 2.15rem, rgba(80, 60, 30, 0.09) 2.2rem) 0 0 / 100% 2.2rem,
-        linear-gradient(90deg, transparent 0 3.4rem, rgba(150, 70, 60, 0.16) 3.45rem, transparent 3.5rem);
-      opacity: 0.45;
-    }
-
-    .card-content { position: relative; }
-
-    .room-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 0.7rem 1rem;
-      align-items: baseline;
-      margin-bottom: 1.5rem;
-      color: var(--muted);
-      font-size: 0.86rem;
-    }
-
-    .room-name {
-      color: var(--accent-ink);
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.85rem, 5vw, 3.45rem);
-      line-height: 1.02;
-      letter-spacing: -0.035em;
-    }
-
-    .byline {
-      margin: 0.65rem 0 1.6rem;
-      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.2rem);
     }
 
     blockquote {
       margin: 0;
-      padding: 0 0 0 1rem;
-      border-left: 0.22rem solid var(--accent);
+      white-space: pre-line;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.15rem, 3vw, 1.7rem);
-      line-height: 1.45;
-    }
-
-    .curator-note {
-      margin: 1.4rem 0 0;
-      color: var(--accent-ink);
-      line-height: 1.6;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1.6rem;
-    }
-
-    button,
-    a.button {
-      appearance: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 2.7rem;
-      padding: 0.65rem 1rem;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.55);
-      color: var(--accent-ink);
-      font: inherit;
-      text-decoration: none;
-      cursor: pointer;
-      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
-    }
-
-    button:hover,
-    a.button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 0.55rem 1.2rem rgba(0, 0, 0, 0.12);
-      background: rgba(255, 255, 255, 0.78);
-    }
-
-    button:focus-visible,
-    a.button:focus-visible {
-      outline: 3px dashed var(--accent);
-      outline-offset: 4px;
+      font-size: clamp(1.45rem, 4vw, 3.8rem);
+      line-height: 1.18;
+      letter-spacing: -0.035em;
     }
 
     .credit {
-      margin: 1.5rem 0 0;
+      margin-top: clamp(2rem, 5vw, 4rem);
       color: var(--muted);
-      font-size: 0.88rem;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .credit a { color: inherit; }
 
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
     }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg-a: #09100d;
-        --bg-b: #17301f;
-        --bg-c: #16120d;
-        --ink: #f4f2dc;
-        --muted: rgba(244, 242, 220, 0.72);
-        --card: rgba(18, 25, 18, 0.82);
-        --line: rgba(207, 223, 177, 0.24);
-        --accent: #a5c96b;
-        --accent-ink: #dff7a2;
-        --shadow: rgba(0, 0, 0, 0.42);
-      }
+    body[data-theme="gallery"] .poem-shell {
+      display: grid;
+      grid-template-columns: minmax(14rem, 0.7fr) minmax(18rem, 1fr);
+      gap: clamp(2rem, 6vw, 6rem);
+      align-items: end;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: clamp(2rem, 6vw, 5rem) 0;
+    }
 
-      pre,
-      button,
-      a.button { background: rgba(0, 0, 0, 0.22); }
+    body[data-theme="gallery"] blockquote {
+      border-left: 1px solid var(--line);
+      padding-left: clamp(1.2rem, 3vw, 2.5rem);
+    }
+
+    body[data-theme="index"] .poem-shell {
+      max-width: 48rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: 0.5rem 0.7rem 0 rgba(35, 92, 75, 0.12);
+      padding: clamp(1.4rem, 5vw, 3rem);
+      transform: rotate(-0.4deg);
+    }
+
+    body[data-theme="index"] h1 {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: clamp(2.2rem, 8vw, 5.7rem);
+      letter-spacing: -0.055em;
+      text-transform: uppercase;
+    }
+
+    body[data-theme="index"] blockquote {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: clamp(1.1rem, 3vw, 2rem);
+      line-height: 1.55;
+    }
+
+    body[data-theme="broadcast"] .poem-shell {
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    body[data-theme="broadcast"] h1 {
+      max-width: none;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-size: clamp(3.8rem, 17vw, 13rem);
+      letter-spacing: -0.065em;
+    }
+
+    body[data-theme="broadcast"] blockquote {
+      max-width: 18ch;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-size: clamp(2rem, 7vw, 6rem);
+      line-height: 0.95;
+      color: var(--accent);
+    }
+
+    body[data-theme="quiet"] .poem-shell {
+      max-width: 44rem;
+      margin-left: 0;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 2rem;
+      padding: clamp(1.5rem, 5vw, 4rem);
+      box-shadow: 0 2rem 5rem rgba(44, 62, 54, 0.12);
+    }
+
+    body[data-theme="quiet"] h1 {
+      max-width: 14ch;
+      font-size: clamp(2.7rem, 8vw, 6.7rem);
+    }
+
+    body[data-theme="quiet"] blockquote {
+      font-size: clamp(1.4rem, 3.4vw, 2.6rem);
+      line-height: 1.38;
+    }
+
+    body[data-theme="constellation"] .poem-shell {
+      display: grid;
+      place-items: center;
+      min-height: 68vh;
+      text-align: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      aspect-ratio: 1 / 1;
+      max-width: min(42rem, 90vw);
+      padding: clamp(1.5rem, 6vw, 4rem);
+      background: var(--surface);
+      box-shadow: 0 0 7rem rgba(255, 207, 107, 0.12);
+    }
+
+    body[data-theme="constellation"] h1 {
+      max-width: 11ch;
+      font-size: clamp(2.3rem, 7vw, 5.4rem);
+    }
+
+    body[data-theme="constellation"] blockquote {
+      font-size: clamp(1.2rem, 3.2vw, 2.25rem);
+      line-height: 1.32;
     }
 
     @media (max-width: 760px) {
-      body { align-items: flex-start; }
-      main { grid-template-columns: 1fr; }
-      .oracle-shell { order: 2; }
-      .offering-card { order: 1; }
+      .topbar,
+      .footer { align-items: flex-start; flex-direction: column; }
+      .theme-picker { justify-content: flex-start; }
+      body[data-theme="gallery"] .poem-shell { grid-template-columns: 1fr; }
+      body[data-theme="constellation"] .poem-shell {
+        border-radius: 2rem;
+        aspect-ratio: auto;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -260,200 +322,180 @@
     }
   </style>
 </head>
-<body>
+<body data-theme="gallery">
   <main>
-    <section class="oracle-shell" aria-labelledby="site-title">
-      <p class="eyebrow">abj.lol presents</p>
-      <h1 id="site-title">The Broccoli Hours</h1>
-      <p class="tagline">A tiny art oracle. The broccoli checks the hour, opens a room, and leaves one public-domain offering on the desk.</p>
-      <pre id="broccoli-stage" role="img" aria-label="ASCII broccoli curator"></pre>
-    </section>
+    <header class="topbar">
+      <a class="brand" href="/">abj.lol</a>
+      <nav class="theme-picker" aria-label="Design options">
+        <button type="button" data-theme-choice="gallery" aria-pressed="true">01 Gallery</button>
+        <button type="button" data-theme-choice="index" aria-pressed="false">02 Index</button>
+        <button type="button" data-theme-choice="broadcast" aria-pressed="false">03 Broadcast</button>
+        <button type="button" data-theme-choice="quiet" aria-pressed="false">04 Quiet</button>
+        <button type="button" data-theme-choice="constellation" aria-pressed="false">05 Constellation</button>
+      </nav>
+    </header>
 
-    <article class="offering-card" aria-labelledby="offering-title">
-      <div class="card-content">
-        <div class="room-row">
-          <span class="room-name" id="room-name">Loading room…</span>
-          <time id="local-time" datetime="">local time</time>
+    <article class="poem-shell" aria-labelledby="poem-title">
+      <div class="poem-heading">
+        <p class="kicker" id="selection-label">Selected by the hour</p>
+        <h1 id="poem-title">Loading</h1>
+        <p class="meta" id="poem-meta"></p>
+      </div>
+      <div class="poem-body">
+        <blockquote id="poem-text"></blockquote>
+        <div class="credit">
+          <span id="poem-credit"></span>
+          <div class="actions">
+            <button type="button" id="another-poem">Another poem</button>
+            <a class="button" id="source-link" href="https://www.gutenberg.org/" rel="noreferrer">Source</a>
+            <a class="button" id="permalink" href="/">Permalink</a>
+          </div>
         </div>
-        <h2 id="offering-title">Consulting the broccoli…</h2>
-        <p class="byline" id="offering-byline"></p>
-        <blockquote id="offering-text"></blockquote>
-        <p class="curator-note" id="curator-note"></p>
-        <div class="actions">
-          <button type="button" id="surprise-button">Surprise me</button>
-          <a class="button" id="permalink" href="/">Permalink</a>
-          <a class="button" id="source-link" href="https://www.gutenberg.org/" rel="noreferrer">Source</a>
-        </div>
-        <p class="credit">All first-pass offerings are public-domain excerpts. Bring your own favorites later; the broccoli recommends links or short excerpts for copyrighted work.</p>
       </div>
     </article>
+
+    <footer class="footer">
+      <span id="local-time"></span>
+      <span>A poem, selected for this visit.</span>
+    </footer>
   </main>
 
   <script>
     (function () {
-      const collection = [
+      const poems = [
         {
-          id: "dawn-dickinson-hope",
-          room: "The Room Before Emails",
+          id: "dickinson-hope",
           hours: [4, 5, 6],
           title: "Hope is the thing with feathers",
-          artist: "Emily Dickinson",
+          author: "Emily Dickinson",
           source: "Poems by Emily Dickinson, Series Two",
           sourceUrl: "https://www.gutenberg.org/ebooks/12242",
-          text: "Hope is the thing with feathers\nThat perches in the soul,\nAnd sings the tune without the words,\nAnd never stops at all,",
-          note: "The broccoli found a small bird already singing before the calendar could object.",
-          palette: ["#d9ecff", "#fff2c7", "#f8fbef"]
+          text: "Hope is the thing with feathers\nThat perches in the soul,\nAnd sings the tune without the words,\nAnd never stops at all,"
         },
         {
-          id: "morning-blake-sunflower",
-          room: "Morning Invocation Desk",
+          id: "blake-sunflower",
           hours: [7, 8, 9, 10],
           title: "Ah! Sun-flower",
-          artist: "William Blake",
+          author: "William Blake",
           source: "Songs of Experience",
           sourceUrl: "https://www.gutenberg.org/ebooks/1934",
-          text: "Ah Sun-flower! weary of time,\nWho countest the steps of the Sun:\nSeeking after that sweet golden clime\nWhere the travellers journey is done.",
-          note: "A yellow thing, looking up. The broccoli respects the bit where longing becomes navigation.",
-          palette: ["#fff0a8", "#dff5b4", "#fffaf0"]
+          text: "Ah Sun-flower! weary of time,\nWho countest the steps of the Sun:\nSeeking after that sweet golden clime\nWhere the travellers journey is done."
         },
         {
-          id: "midday-stevens-jar",
-          room: "Midday Nonsense with Structure",
+          id: "stevens-jar",
           hours: [11, 12, 13, 14],
           title: "Anecdote of the Jar",
-          artist: "Wallace Stevens",
+          author: "Wallace Stevens",
           source: "Harmonium",
           sourceUrl: "https://www.gutenberg.org/ebooks/3187",
-          text: "I placed a jar in Tennessee,\nAnd round it was, upon a hill.\nIt made the slovenly wilderness\nSurround that hill.",
-          note: "The broccoli appreciates objects that quietly reorganize the room around them.",
-          palette: ["#d8f6ce", "#f8ead2", "#f7fff4"]
+          text: "I placed a jar in Tennessee,\nAnd round it was, upon a hill.\nIt made the slovenly wilderness\nSurround that hill."
         },
         {
-          id: "slump-wordsworth-daffodils",
-          room: "Slump Chapel",
+          id: "wordsworth-daffodils",
           hours: [15, 16, 17],
           title: "I Wandered Lonely as a Cloud",
-          artist: "William Wordsworth",
+          author: "William Wordsworth",
           source: "Poems in Two Volumes",
           sourceUrl: "https://www.gutenberg.org/ebooks/12145",
-          text: "I wandered lonely as a cloud\nThat floats on high o'er vales and hills,\nWhen all at once I saw a crowd,\nA host, of golden daffodils;",
-          note: "If the afternoon has gone soft at the edges, the broccoli prescribes one bright crowd of flowers.",
-          palette: ["#ece4ff", "#f7ebb0", "#fffaf2"]
+          text: "I wandered lonely as a cloud\nThat floats on high o'er vales and hills,\nWhen all at once I saw a crowd,\nA host, of golden daffodils;"
         },
         {
-          id: "golden-keats-bright-star",
-          room: "Golden Hour Annex",
+          id: "keats-bright-star",
           hours: [18, 19, 20],
           title: "Bright Star",
-          artist: "John Keats",
+          author: "John Keats",
           source: "Poems 1817",
           sourceUrl: "https://www.gutenberg.org/ebooks/8209",
-          text: "Bright star, would I were stedfast as thou art—\nNot in lone splendour hung aloft the night\nAnd watching, with eternal lids apart,\nLike nature's patient, sleepless Eremite,",
-          note: "The broccoli says this is when the light briefly gets honest and a little dramatic.",
-          palette: ["#ffd7a1", "#f4edc9", "#fff7df"]
+          text: "Bright star, would I were stedfast as thou art—\nNot in lone splendour hung aloft the night\nAnd watching, with eternal lids apart,\nLike nature's patient, sleepless Eremite,"
         },
         {
-          id: "night-shelley-moon",
-          room: "The Unsent Thought Gallery",
+          id: "shelley-moon",
           hours: [21, 22, 23, 0, 1, 2, 3],
           title: "To the Moon",
-          artist: "Percy Bysshe Shelley",
+          author: "Percy Bysshe Shelley",
           source: "The Complete Poetical Works of Percy Bysshe Shelley",
           sourceUrl: "https://www.gutenberg.org/ebooks/4800",
-          text: "Art thou pale for weariness\nOf climbing heaven and gazing on the earth,\nWandering companionless\nAmong the stars that have a different birth,—",
-          note: "Open late for companionless satellites, unsent thoughts, and vegetables with feelings.",
-          palette: ["#121a35", "#223f3a", "#0b0f1e"]
+          text: "Art thou pale for weariness\nOf climbing heaven and gazing on the earth,\nWandering companionless\nAmong the stars that have a different birth,—"
         }
       ];
 
-      const broccoli = [
-        "          ,@@@@@@@,",
-        "       ,@@@@@@@@@@@@@,",
-        "     ,@@@@@@'   `@@@@@@,",
-        "    ,@@@@@         @@@@@,",
-        "   @@@@@   .-\"\"-.   @@@@@",
-        "   @@@@   /  o o  \\   @@@@",
-        "   @@@@   |  (_)  |   @@@@",
-        "   @@@@   \\  ^   /   @@@@",
-        "    @@@@   `-^-`   @@@@",
-        "     @@@@@.     .@@@@@",
-        "      `@@@@@@@ @@@@@@'",
-        "         `@@@@@@@@'",
-        "           || ||",
-        "           || ||",
-        "           VV VV"
-      ].join("\n");
-
-      const stage = document.getElementById("broccoli-stage");
-      const roomName = document.getElementById("room-name");
-      const localTime = document.getElementById("local-time");
-      const title = document.getElementById("offering-title");
-      const byline = document.getElementById("offering-byline");
-      const text = document.getElementById("offering-text");
-      const note = document.getElementById("curator-note");
+      const themes = ["gallery", "index", "broadcast", "quiet", "constellation"];
+      const body = document.body;
+      const title = document.getElementById("poem-title");
+      const meta = document.getElementById("poem-meta");
+      const text = document.getElementById("poem-text");
+      const credit = document.getElementById("poem-credit");
       const sourceLink = document.getElementById("source-link");
       const permalink = document.getElementById("permalink");
-      const surpriseButton = document.getElementById("surprise-button");
+      const localTime = document.getElementById("local-time");
+      const anotherPoem = document.getElementById("another-poem");
+      const themeButtons = [...document.querySelectorAll("[data-theme-choice]")];
 
       function dayOfYear(date) {
         const start = new Date(date.getFullYear(), 0, 0);
         return Math.floor((date - start) / 86400000);
       }
 
-      function getPieceByClock(date) {
+      function selectedPoem(date) {
         const hour = date.getHours();
-        const candidates = collection.filter((piece) => piece.hours.includes(hour));
-        return candidates[dayOfYear(date) % candidates.length] || collection[0];
+        const candidates = poems.filter((poem) => poem.hours.includes(hour));
+        return candidates[dayOfYear(date) % candidates.length] || poems[0];
       }
 
-      function getPieceFromUrl() {
+      function poemFromUrl() {
+        const id = new URLSearchParams(window.location.search).get("poem");
+        return poems.find((poem) => poem.id === id);
+      }
+
+      function themeFromUrl() {
+        const theme = new URLSearchParams(window.location.search).get("design");
+        return themes.includes(theme) ? theme : "gallery";
+      }
+
+      function setTheme(theme) {
+        body.dataset.theme = theme;
+        themeButtons.forEach((button) => {
+          button.setAttribute("aria-pressed", String(button.dataset.themeChoice === theme));
+        });
         const params = new URLSearchParams(window.location.search);
-        const id = params.get("piece");
-        return collection.find((piece) => piece.id === id);
+        params.set("design", theme);
+        if (!params.get("poem")) params.delete("poem");
+        window.history.replaceState({}, "", "?" + params.toString());
       }
 
-      function applyPalette(piece) {
-        const [a, b, c] = piece.palette;
-        document.documentElement.style.setProperty("--bg-a", a);
-        document.documentElement.style.setProperty("--bg-b", b);
-        document.documentElement.style.setProperty("--bg-c", c);
-        const night = piece.hours.some((hour) => hour >= 21 || hour <= 3);
-        if (night) {
-          document.documentElement.style.setProperty("--ink", "#f6f2dd");
-          document.documentElement.style.setProperty("--muted", "rgba(246, 242, 221, 0.72)");
-          document.documentElement.style.setProperty("--card", "rgba(13, 18, 26, 0.84)");
-          document.documentElement.style.setProperty("--line", "rgba(246, 242, 221, 0.22)");
-          document.documentElement.style.setProperty("--accent", "#b7d987");
-          document.documentElement.style.setProperty("--accent-ink", "#e4f5bd");
-        }
-      }
-
-      function render(piece, shouldUpdateUrl) {
+      function renderPoem(poem, updateUrl) {
         const now = new Date();
-        applyPalette(piece);
-        stage.textContent = broccoli + "\n\n      " + piece.room.toLowerCase() + "\n      has opened.";
-        roomName.textContent = piece.room;
+        title.textContent = poem.title;
+        meta.textContent = poem.author;
+        text.textContent = poem.text;
+        credit.textContent = poem.source;
+        sourceLink.href = poem.sourceUrl;
+        permalink.href = "?poem=" + encodeURIComponent(poem.id) + "&design=" + encodeURIComponent(body.dataset.theme);
         localTime.textContent = now.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
-        localTime.dateTime = now.toISOString();
-        title.textContent = piece.title;
-        byline.textContent = piece.artist + " · " + piece.source;
-        text.textContent = piece.text;
-        note.textContent = piece.note;
-        sourceLink.href = piece.sourceUrl;
-        permalink.href = "?piece=" + encodeURIComponent(piece.id);
-        if (shouldUpdateUrl) {
-          window.history.replaceState({}, "", "?piece=" + encodeURIComponent(piece.id));
+        if (updateUrl) {
+          const params = new URLSearchParams(window.location.search);
+          params.set("poem", poem.id);
+          params.set("design", body.dataset.theme);
+          window.history.replaceState({}, "", "?" + params.toString());
         }
       }
 
-      surpriseButton.addEventListener("click", () => {
-        const currentId = new URLSearchParams(window.location.search).get("piece");
-        const remaining = collection.filter((piece) => piece.id !== currentId);
-        const piece = remaining[Math.floor(Math.random() * remaining.length)] || collection[0];
-        render(piece, true);
+      themeButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          setTheme(button.dataset.themeChoice);
+          const current = poemFromUrl() || selectedPoem(new Date());
+          renderPoem(current, Boolean(poemFromUrl()));
+        });
       });
 
-      render(getPieceFromUrl() || getPieceByClock(new Date()), Boolean(getPieceFromUrl()));
+      anotherPoem.addEventListener("click", () => {
+        const currentId = new URLSearchParams(window.location.search).get("poem");
+        const choices = poems.filter((poem) => poem.id !== currentId);
+        renderPoem(choices[Math.floor(Math.random() * choices.length)] || poems[0], true);
+      });
+
+      setTheme(themeFromUrl());
+      renderPoem(poemFromUrl() || selectedPoem(new Date()), Boolean(poemFromUrl()));
     })();
   </script>
 </body>
