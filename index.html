@@ -28,26 +28,7 @@
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    body[data-theme="gallery"] {
-      --paper: #f7f4ec;
-      --ink: #15120f;
-      --muted: #716b61;
-      --line: #d8d0c0;
-      --accent: #8f2f22;
-      --surface: rgba(255, 252, 244, 0.9);
-    }
 
-    body[data-theme="index"] {
-      --paper: #f2efe7;
-      --ink: #161616;
-      --muted: #5f5a51;
-      --line: #cfc6b7;
-      --accent: #235c4b;
-      --surface: #fffdf5;
-      background:
-        linear-gradient(90deg, rgba(180, 45, 30, 0.08) 0 1px, transparent 1px 100%) 3.1rem 0 / 100% 100%,
-        repeating-linear-gradient(#f8f4ea 0 2.45rem, #d9d0be 2.5rem 2.55rem);
-    }
 
     body[data-theme="broadcast"] {
       --paper: #070707;
@@ -62,60 +43,12 @@
     }
 
 
-    body[data-theme="gallery-wall"] {
-      --paper: #f9f7f0; --ink: #11110f; --muted: #777064; --line: #d7cdbb; --accent: #b13d25; --surface: rgba(255,254,249,.94);
-      background: linear-gradient(90deg, #f9f7f0 0 62%, #ebe3d4 62% 100%);
-    }
 
-    body[data-theme="gallery-plinth"] {
-      --paper: #efede7; --ink: #171411; --muted: #6d665d; --line: #cfc6b5; --accent: #2f4f8f; --surface: #fffdfa;
-      background: radial-gradient(circle at 50% 45%, #fffdfa 0 18rem, #efede7 18rem 100%);
-    }
 
-    body[data-theme="broadcast-red"] {
-      --paper: #d71920; --ink: #fff8df; --muted: rgba(255,248,223,.72); --line: rgba(255,248,223,.34); --accent: #111111; --surface: rgba(17,17,17,.16);
-      background: linear-gradient(135deg, #d71920, #f04b23 55%, #101010 55%);
-    }
 
-    body[data-theme="broadcast-grid"] {
-      --paper: #f4ff00; --ink: #070707; --muted: #333300; --line: rgba(7,7,7,.28); --accent: #ff2a00; --surface: rgba(255,255,255,.35);
-      background:
-        linear-gradient(rgba(7,7,7,.08) 1px, transparent 1px) 0 0 / 2rem 2rem,
-        linear-gradient(90deg, rgba(7,7,7,.08) 1px, transparent 1px) 0 0 / 2rem 2rem,
-        #f4ff00;
-    }
 
-    body[data-theme="broadcast-type"] {
-      --paper: #0505ff; --ink: #ffffff; --muted: rgba(255,255,255,.72); --line: rgba(255,255,255,.3); --accent: #ffea00; --surface: rgba(0,0,0,.18);
-      background: linear-gradient(180deg, #0505ff 0 70%, #03036e 70% 100%);
-    }
 
-    body[data-theme="quiet"] {
-      --paper: #eef3f0;
-      --ink: #1f2925;
-      --muted: #65736c;
-      --line: #c9d7d0;
-      --accent: #496d61;
-      --surface: rgba(250, 253, 251, 0.72);
-      background:
-        radial-gradient(circle at 80% 15%, rgba(130, 168, 151, 0.24), transparent 26rem),
-        linear-gradient(145deg, #eef3f0, #f7f4ee);
-    }
 
-    body[data-theme="constellation"] {
-      --paper: #080b18;
-      --ink: #f7f1df;
-      --muted: #aaa5c7;
-      --line: #343855;
-      --accent: #ffcf6b;
-      --surface: rgba(12, 16, 34, 0.78);
-      background:
-        radial-gradient(circle at 15% 25%, #ffffff 0 1px, transparent 2px),
-        radial-gradient(circle at 65% 18%, #ffffff 0 1px, transparent 2px),
-        radial-gradient(circle at 80% 70%, #ffffff 0 1px, transparent 2px),
-        radial-gradient(circle at 30% 82%, #ffffff 0 1px, transparent 2px),
-        linear-gradient(155deg, #060713, #101632 62%, #211326);
-    }
 
     main {
       min-height: 100vh;
@@ -145,13 +78,6 @@
       color: var(--ink);
       font-weight: 700;
       text-decoration: none;
-    }
-
-    .theme-picker {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 0.35rem;
     }
 
     button,
@@ -232,53 +158,6 @@
       margin-top: 1.25rem;
     }
 
-    body[data-theme="gallery"] .poem-shell {
-      display: grid;
-      grid-template-columns: minmax(14rem, 0.7fr) minmax(18rem, 1fr);
-      gap: clamp(2rem, 6vw, 6rem);
-      align-items: end;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: clamp(2rem, 6vw, 5rem) 0;
-    }
-
-    body[data-theme="gallery"] h1 {
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-weight: 900;
-      letter-spacing: -0.095em;
-      text-transform: uppercase;
-    }
-
-    body[data-theme="gallery"] blockquote {
-      border-left: 1px solid var(--line);
-      padding-left: clamp(1.2rem, 3vw, 2.5rem);
-      font-family: Georgia, "Times New Roman", serif;
-      letter-spacing: -0.025em;
-      line-height: 1.24;
-    }
-
-    body[data-theme="index"] .poem-shell {
-      max-width: 48rem;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      box-shadow: 0.5rem 0.7rem 0 rgba(35, 92, 75, 0.12);
-      padding: clamp(1.4rem, 5vw, 3rem);
-      transform: rotate(-0.4deg);
-    }
-
-    body[data-theme="index"] h1 {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: clamp(2.2rem, 8vw, 5.7rem);
-      letter-spacing: -0.055em;
-      text-transform: uppercase;
-    }
-
-    body[data-theme="index"] blockquote {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: clamp(1.1rem, 3vw, 2rem);
-      line-height: 1.55;
-    }
-
     body[data-theme="broadcast"] .poem-shell {
       display: grid;
       grid-template-columns: 1fr;
@@ -304,99 +183,10 @@
       text-transform: none;
     }
 
-    body[data-theme="gallery-wall"] .poem-shell {
-      display: grid; grid-template-columns: minmax(18rem, 1fr) minmax(18rem, 1fr); gap: clamp(2rem, 7vw, 7rem); align-items: center; max-width: 78rem;
-    }
-
-    body[data-theme="gallery-wall"] .poem-heading {
-      min-height: 54vh; display: flex; flex-direction: column; justify-content: flex-end; border-right: 1px solid var(--line); padding-right: clamp(1.5rem, 4vw, 4rem);
-    }
-
-    body[data-theme="gallery-wall"] blockquote { font-size: clamp(1.7rem, 4.8vw, 4.6rem); }
-
-    body[data-theme="gallery-plinth"] .poem-shell {
-      max-width: 58rem; text-align: center; background: var(--surface); border: 1px solid var(--line); padding: clamp(2rem, 7vw, 5rem); box-shadow: 0 2.5rem 0 -1rem rgba(0,0,0,.08), 0 3rem 5rem rgba(0,0,0,.12);
-    }
-
-    body[data-theme="gallery-plinth"] h1 { margin-inline: auto; }
-    body[data-theme="gallery-plinth"] .actions { justify-content: center; }
-
-    body[data-theme="broadcast-red"] .poem-shell,
-    body[data-theme="broadcast-grid"] .poem-shell,
-    body[data-theme="broadcast-type"] .poem-shell { display: grid; grid-template-columns: 1fr; max-width: 86rem; text-transform: uppercase; }
-
-    body[data-theme="broadcast-red"] h1,
-    body[data-theme="broadcast-grid"] h1,
-    body[data-theme="broadcast-type"] h1 { max-width: none; font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif; letter-spacing: -0.075em; }
-
-    body[data-theme="broadcast-red"] h1 { font-size: clamp(4rem, 19vw, 15rem); color: var(--ink); }
-    body[data-theme="broadcast-grid"] h1 { font-size: clamp(3.4rem, 15vw, 12rem); }
-    body[data-theme="broadcast-type"] h1 { font-size: clamp(4rem, 18vw, 14rem); color: var(--accent); }
-
-    body[data-theme="broadcast-red"] blockquote,
-    body[data-theme="broadcast-grid"] blockquote,
-    body[data-theme="broadcast-type"] blockquote { font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif; line-height: .92; max-width: 20ch; }
-
-    body[data-theme="broadcast-red"] blockquote { font-size: clamp(2.3rem, 8vw, 7rem); color: #111; }
-    body[data-theme="broadcast-grid"] blockquote { font-size: clamp(2rem, 7vw, 6rem); color: var(--accent); }
-    body[data-theme="broadcast-type"] blockquote { font-size: clamp(2.2rem, 8vw, 7rem); }
-
-    body[data-theme="quiet"] .poem-shell {
-      max-width: 44rem;
-      margin-left: 0;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 2rem;
-      padding: clamp(1.5rem, 5vw, 4rem);
-      box-shadow: 0 2rem 5rem rgba(44, 62, 54, 0.12);
-    }
-
-    body[data-theme="quiet"] h1 {
-      max-width: 14ch;
-      font-size: clamp(2.7rem, 8vw, 6.7rem);
-    }
-
-    body[data-theme="quiet"] blockquote {
-      font-size: clamp(1.4rem, 3.4vw, 2.6rem);
-      line-height: 1.38;
-    }
-
-    body[data-theme="constellation"] .poem-shell {
-      display: grid;
-      place-items: center;
-      min-height: 68vh;
-      text-align: center;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-      aspect-ratio: 1 / 1;
-      max-width: min(42rem, 90vw);
-      padding: clamp(1.5rem, 6vw, 4rem);
-      background: var(--surface);
-      box-shadow: 0 0 7rem rgba(255, 207, 107, 0.12);
-    }
-
-    body[data-theme="constellation"] h1 {
-      max-width: 11ch;
-      font-size: clamp(2.3rem, 7vw, 5.4rem);
-    }
-
-    body[data-theme="constellation"] blockquote {
-      font-size: clamp(1.2rem, 3.2vw, 2.25rem);
-      line-height: 1.32;
-    }
-
     @media (max-width: 760px) {
       .topbar,
       .footer { align-items: flex-start; flex-direction: column; }
       .footer .actions { margin-left: 0; justify-content: flex-start; }
-      .theme-picker { justify-content: flex-start; }
-      body[data-theme="gallery"] .poem-shell,
-      body[data-theme="gallery-wall"] .poem-shell { grid-template-columns: 1fr; }
-      body[data-theme="gallery-wall"] .poem-heading { min-height: auto; border-right: 0; padding-right: 0; }
-      body[data-theme="constellation"] .poem-shell {
-        border-radius: 2rem;
-        aspect-ratio: auto;
-      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -413,18 +203,6 @@
   <main>
     <header class="topbar">
       <a class="brand" href="/">abj.lol</a>
-      <nav class="theme-picker" aria-label="Design options">
-        <button type="button" data-theme-choice="gallery" aria-pressed="false">01 Gallery</button>
-        <button type="button" data-theme-choice="index" aria-pressed="false">02 Index</button>
-        <button type="button" data-theme-choice="broadcast" aria-pressed="true">03 Broadcast</button>
-        <button type="button" data-theme-choice="quiet" aria-pressed="false">04 Quiet</button>
-        <button type="button" data-theme-choice="constellation" aria-pressed="false">05 Constellation</button>
-        <button type="button" data-theme-choice="gallery-wall" aria-pressed="false">06 Wall</button>
-        <button type="button" data-theme-choice="gallery-plinth" aria-pressed="false">07 Plinth</button>
-        <button type="button" data-theme-choice="broadcast-red" aria-pressed="false">08 Red</button>
-        <button type="button" data-theme-choice="broadcast-grid" aria-pressed="false">09 Grid</button>
-        <button type="button" data-theme-choice="broadcast-type" aria-pressed="false">10 Type</button>
-      </nav>
     </header>
 
     <article class="poem-shell" aria-labelledby="poem-title">
@@ -517,7 +295,6 @@
         }
       ];
 
-      const themes = ["gallery", "index", "broadcast", "quiet", "constellation", "gallery-wall", "gallery-plinth", "broadcast-red", "broadcast-grid", "broadcast-type"];
       const body = document.body;
       const title = document.getElementById("poem-title");
       const meta = document.getElementById("poem-meta");
@@ -527,7 +304,6 @@
       const permalink = document.getElementById("permalink");
       const localTime = document.getElementById("local-time");
       const anotherPoem = document.getElementById("another-poem");
-      const themeButtons = [...document.querySelectorAll("[data-theme-choice]")];
 
       function dayOfYear(date) {
         const start = new Date(date.getFullYear(), 0, 0);
@@ -545,21 +321,7 @@
         return poems.find((poem) => poem.id === id);
       }
 
-      function themeFromUrl() {
-        const theme = new URLSearchParams(window.location.search).get("design");
-        return themes.includes(theme) ? theme : "broadcast";
-      }
 
-      function setTheme(theme) {
-        body.dataset.theme = theme;
-        themeButtons.forEach((button) => {
-          button.setAttribute("aria-pressed", String(button.dataset.themeChoice === theme));
-        });
-        const params = new URLSearchParams(window.location.search);
-        params.set("design", theme);
-        if (!params.get("poem")) params.delete("poem");
-        window.history.replaceState({}, "", "?" + params.toString());
-      }
 
       function applyPoemPalette(poem) {
         if (body.dataset.theme !== "broadcast" || !poem.palette) return;
@@ -591,23 +353,15 @@
         text.textContent = poem.text;
         credit.textContent = poem.source;
         sourceLink.href = poem.sourceUrl;
-        permalink.href = "?poem=" + encodeURIComponent(poem.id) + "&design=" + encodeURIComponent(body.dataset.theme);
+        permalink.href = "?poem=" + encodeURIComponent(poem.id);
         localTime.textContent = now.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
         if (updateUrl) {
           const params = new URLSearchParams(window.location.search);
           params.set("poem", poem.id);
-          params.set("design", body.dataset.theme);
           window.history.replaceState({}, "", "?" + params.toString());
         }
       }
 
-      themeButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          setTheme(button.dataset.themeChoice);
-          const current = poemFromUrl() || selectedPoem(new Date());
-          renderPoem(current, Boolean(poemFromUrl()));
-        });
-      });
 
       anotherPoem.addEventListener("click", () => {
         const currentId = new URLSearchParams(window.location.search).get("poem");
@@ -615,7 +369,6 @@
         renderPoem(choices[Math.floor(Math.random() * choices.length)] || poems[0], true);
       });
 
-      setTheme(themeFromUrl());
       renderPoem(poemFromUrl() || selectedPoem(new Date()), Boolean(poemFromUrl()));
     })();
   </script>
