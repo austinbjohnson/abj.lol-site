@@ -418,7 +418,7 @@
     @media (max-width: 760px) { body.preview-mode { padding-top: 10rem; } .preview-nav { align-items: flex-start; flex-direction: column; } .preview-links { justify-content: flex-start; } }
   </style>
 </head>
-<body class="preview-mode" data-theme="gallery">
+<body class="preview-mode" data-theme="broadcast">
   <nav class="preview-nav" aria-label="Preview versions">
     <strong>abj.lol design previews</strong>
     <div class="preview-links">
@@ -439,9 +439,9 @@
     <header class="topbar">
       <a class="brand" href="/">abj.lol</a>
       <nav class="theme-picker" aria-label="Design options">
-        <button type="button" data-theme-choice="gallery" aria-pressed="true">01 Gallery</button>
+        <button type="button" data-theme-choice="gallery" aria-pressed="false">01 Gallery</button>
         <button type="button" data-theme-choice="index" aria-pressed="false">02 Index</button>
-        <button type="button" data-theme-choice="broadcast" aria-pressed="false">03 Broadcast</button>
+        <button type="button" data-theme-choice="broadcast" aria-pressed="true">03 Broadcast</button>
         <button type="button" data-theme-choice="quiet" aria-pressed="false">04 Quiet</button>
         <button type="button" data-theme-choice="constellation" aria-pressed="false">05 Constellation</button>
         <button type="button" data-theme-choice="gallery-wall" aria-pressed="false">06 Wall</button>
@@ -488,7 +488,8 @@
           author: "Emily Dickinson",
           source: "Poems by Emily Dickinson, Series Two",
           sourceUrl: "https://www.gutenberg.org/ebooks/12242",
-          text: "Hope is the thing with feathers\nThat perches in the soul,\nAnd sings the tune without the words,\nAnd never stops at all,"
+          text: "Hope is the thing with feathers\nThat perches in the soul,\nAnd sings the tune without the words,\nAnd never stops at all,",
+          palette: { paper: "#fff3a6", ink: "#18130a", muted: "#695d35", line: "rgba(24,19,10,.28)", accent: "#2b6e3f", surface: "rgba(255,255,255,.18)", glow: "rgba(43,110,63,.24)" }
         },
         {
           id: "blake-sunflower",
@@ -497,7 +498,8 @@
           author: "William Blake",
           source: "Songs of Experience",
           sourceUrl: "https://www.gutenberg.org/ebooks/1934",
-          text: "Ah Sun-flower! weary of time,\nWho countest the steps of the Sun:\nSeeking after that sweet golden clime\nWhere the travellers journey is done."
+          text: "Ah Sun-flower! weary of time,\nWho countest the steps of the Sun:\nSeeking after that sweet golden clime\nWhere the travellers journey is done.",
+          palette: { paper: "#f3d21b", ink: "#11100a", muted: "#5f4f08", line: "rgba(17,16,10,.28)", accent: "#9b2d18", surface: "rgba(255,255,255,.2)", glow: "rgba(155,45,24,.22)" }
         },
         {
           id: "stevens-jar",
@@ -506,7 +508,8 @@
           author: "Wallace Stevens",
           source: "Harmonium",
           sourceUrl: "https://www.gutenberg.org/ebooks/3187",
-          text: "I placed a jar in Tennessee,\nAnd round it was, upon a hill.\nIt made the slovenly wilderness\nSurround that hill."
+          text: "I placed a jar in Tennessee,\nAnd round it was, upon a hill.\nIt made the slovenly wilderness\nSurround that hill.",
+          palette: { paper: "#c9c4ad", ink: "#171612", muted: "#5f5a47", line: "rgba(23,22,18,.3)", accent: "#344f2f", surface: "rgba(255,255,255,.18)", glow: "rgba(52,79,47,.22)" }
         },
         {
           id: "wordsworth-daffodils",
@@ -515,7 +518,8 @@
           author: "William Wordsworth",
           source: "Poems in Two Volumes",
           sourceUrl: "https://www.gutenberg.org/ebooks/12145",
-          text: "I wandered lonely as a cloud\nThat floats on high o'er vales and hills,\nWhen all at once I saw a crowd,\nA host, of golden daffodils;"
+          text: "I wandered lonely as a cloud\nThat floats on high o'er vales and hills,\nWhen all at once I saw a crowd,\nA host, of golden daffodils;",
+          palette: { paper: "#ffe45c", ink: "#141006", muted: "#6b5b12", line: "rgba(20,16,6,.26)", accent: "#2f64c8", surface: "rgba(255,255,255,.18)", glow: "rgba(47,100,200,.24)" }
         },
         {
           id: "keats-bright-star",
@@ -524,7 +528,8 @@
           author: "John Keats",
           source: "Poems 1817",
           sourceUrl: "https://www.gutenberg.org/ebooks/8209",
-          text: "Bright star, would I were stedfast as thou art—\nNot in lone splendour hung aloft the night\nAnd watching, with eternal lids apart,\nLike nature's patient, sleepless Eremite,"
+          text: "Bright star, would I were stedfast as thou art—\nNot in lone splendour hung aloft the night\nAnd watching, with eternal lids apart,\nLike nature's patient, sleepless Eremite,",
+          palette: { paper: "#10162d", ink: "#fff7de", muted: "#b9b3a2", line: "rgba(255,247,222,.28)", accent: "#ffcc4d", surface: "rgba(0,0,0,.18)", glow: "rgba(255,204,77,.28)" }
         },
         {
           id: "shelley-moon",
@@ -533,7 +538,8 @@
           author: "Percy Bysshe Shelley",
           source: "The Complete Poetical Works of Percy Bysshe Shelley",
           sourceUrl: "https://www.gutenberg.org/ebooks/4800",
-          text: "Art thou pale for weariness\nOf climbing heaven and gazing on the earth,\nWandering companionless\nAmong the stars that have a different birth,—"
+          text: "Art thou pale for weariness\nOf climbing heaven and gazing on the earth,\nWandering companionless\nAmong the stars that have a different birth,—",
+          palette: { paper: "#070817", ink: "#f4f0ff", muted: "#aaa5c7", line: "rgba(244,240,255,.24)", accent: "#b9d7ff", surface: "rgba(255,255,255,.08)", glow: "rgba(185,215,255,.24)" }
         }
       ];
 
@@ -567,7 +573,7 @@
 
       function themeFromUrl() {
         const theme = new URLSearchParams(window.location.search).get("design");
-        return themes.includes(theme) ? theme : "gallery";
+        return themes.includes(theme) ? theme : "broadcast";
       }
 
       function setTheme(theme) {
@@ -584,8 +590,31 @@
         window.history.replaceState({}, "", "?" + params.toString());
       }
 
+      function applyPoemPalette(poem) {
+        if (body.dataset.theme !== "broadcast" || !poem.palette) return;
+        body.style.setProperty("--paper", poem.palette.paper);
+        body.style.setProperty("--ink", poem.palette.ink);
+        body.style.setProperty("--muted", poem.palette.muted);
+        body.style.setProperty("--line", poem.palette.line);
+        body.style.setProperty("--accent", poem.palette.accent);
+        body.style.setProperty("--surface", poem.palette.surface);
+        body.style.background = "radial-gradient(circle at 50% 18%, " + poem.palette.glow + ", transparent 28rem), linear-gradient(" + poem.palette.paper + ", " + poem.palette.paper + ")";
+      }
+
+      function resetInlinePalette() {
+        body.style.removeProperty("--paper");
+        body.style.removeProperty("--ink");
+        body.style.removeProperty("--muted");
+        body.style.removeProperty("--line");
+        body.style.removeProperty("--accent");
+        body.style.removeProperty("--surface");
+        body.style.background = "";
+      }
+
       function renderPoem(poem, updateUrl) {
         const now = new Date();
+        resetInlinePalette();
+        applyPoemPalette(poem);
         title.textContent = poem.title;
         meta.textContent = poem.author;
         text.textContent = poem.text;
