@@ -3,325 +3,373 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A curated poem selected by the hour.">
   <title>abj.lol</title>
   <style>
     :root {
       color-scheme: light dark;
+      --paper: #fbfaf6;
+      --ink: #171717;
+      --muted: #6a6760;
+      --line: #ded8ca;
+      --accent: #9b3f2f;
+      --surface: rgba(251, 250, 246, 0.92);
     }
-    html {
-      overflow-x: hidden;
-    }
-    * {
-      box-sizing: border-box;
-    }
+
+    * { box-sizing: border-box; }
+
+    html { min-height: 100%; }
+
     body {
       margin: 0;
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: clamp(1.5rem, 6vw, 4rem);
-      font-family: "Courier New", Courier, monospace;
-      background: radial-gradient(circle at top, #f1ffe3 0%, #d6ffb7 45%, #e9ffe6 100%);
-      color: #1e2a1d;
-      overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
+
+
+
+    body[data-theme="broadcast"] {
+      --paper: #070707;
+      --ink: #f7f7ef;
+      --muted: #a9a99f;
+      --line: #2f2f2a;
+      --accent: #e7ff55;
+      --surface: rgba(10, 10, 10, 0.84);
+      background:
+        radial-gradient(circle at 50% 20%, rgba(231, 255, 85, 0.18), transparent 28rem),
+        linear-gradient(#070707, #11110d);
+    }
+
+
+
+
+
+
+
+
+
     main {
-      width: min(60ch, 100%);
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: clamp(1rem, 3vw, 2.75rem);
+    }
+
+    .topbar,
+    .footer {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
       align-items: center;
-      gap: clamp(1.25rem, 5vw, 2.5rem);
-      text-align: center;
+      color: var(--muted);
+      font-size: 0.84rem;
+      letter-spacing: 0.04em;
     }
-    .tagline {
-      font-size: clamp(1rem, 2.4vw, 1.25rem);
-      letter-spacing: 0.03em;
-      max-width: 30ch;
+
+    .footer .actions {
+      margin-top: 0;
+      margin-left: auto;
+      justify-content: flex-end;
     }
-    pre {
-      margin: 0 auto;
-      width: min(100%, 44ch);
-      font-size: clamp(0.75rem, 2.1vw, 1.1rem);
-      line-height: 1.35;
-      white-space: pre;
-      overflow-x: hidden;
-      background: rgba(255, 255, 255, 0.9);
-      border: 2px dashed #4caf50;
-      padding: clamp(1rem, 4vw, 2.25rem);
-      border-radius: 1rem;
-      box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.15);
+
+    .brand {
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: none;
     }
-    pre::-webkit-scrollbar {
-      display: none;
-    }
-    .motion-controls {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      align-items: center;
-      font-size: 0.95rem;
-      color: inherit;
-    }
-    .motion-toggle {
-      appearance: none;
-      border: 2px solid rgba(76, 175, 80, 0.6);
-      background: rgba(255, 255, 255, 0.85);
-      color: inherit;
-      font-family: inherit;
-      font-size: 1rem;
-      padding: 0.5rem 1.5rem;
+
+    button,
+    a.button {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
       border-radius: 999px;
+      padding: 0.42rem 0.7rem;
+      font: inherit;
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      text-decoration: none;
     }
-    .motion-toggle:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15);
+
+    button[aria-pressed="true"] {
+      border-color: var(--accent);
+      color: var(--ink);
     }
-    .motion-toggle:focus-visible {
-      outline: 3px dashed #4caf50;
-      outline-offset: 4px;
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
     }
-    .motion-note {
-      max-width: 30ch;
-      color: rgba(30, 42, 29, 0.8);
+
+    .poem-shell {
+      align-self: center;
+      width: min(68rem, 100%);
+      margin: clamp(2rem, 6vw, 5rem) auto;
+      transition: all 240ms ease;
     }
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
+
+    .kicker {
+      margin: 0 0 1rem;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
     }
-    @media (max-width: 520px) {
-      body {
-        padding: 1.5rem;
-      }
-      .motion-note {
-        font-size: 0.85rem;
-      }
+
+    h1 {
+      margin: 0;
+      max-width: 12ch;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 10vw, 9rem);
+      line-height: 0.9;
+      letter-spacing: -0.075em;
     }
-    @media (prefers-color-scheme: dark) {
-      body {
-        background: radial-gradient(circle at top, #0b1f16 0%, #14331f 45%, #07130c 100%);
-        color: #f5fff0;
-      }
-      pre {
-        background: rgba(9, 31, 18, 0.78);
-        border-color: #81c784;
-        box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.35);
-      }
-      .motion-toggle {
-        background: rgba(9, 31, 18, 0.85);
-        border-color: rgba(129, 199, 132, 0.7);
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
-      }
-      .motion-note {
-        color: rgba(245, 255, 240, 0.7);
-      }
+
+    .meta {
+      margin: 1rem 0 clamp(2rem, 5vw, 4rem);
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.2rem);
     }
-    @media (max-width: 640px) {
-      body {
-        padding: clamp(1rem, 8vw, 2rem);
-      }
-      main {
-        gap: clamp(1rem, 6vw, 2.25rem);
-      }
-      .tagline {
-        font-size: clamp(0.95rem, 4.5vw, 1.2rem);
-      }
-      pre {
-        font-size: clamp(0.75rem, 3.6vw, 1.1rem);
-        padding: clamp(1rem, 9vw, 2.25rem);
-        border-width: 2px;
+
+    blockquote {
+      margin: 0;
+      white-space: pre-line;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.45rem, 4vw, 3.8rem);
+      line-height: 1.18;
+      letter-spacing: -0.035em;
+    }
+
+    .credit {
+      margin-top: clamp(2rem, 5vw, 4rem);
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .credit a { color: inherit; }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+    }
+
+    body[data-theme="broadcast"] .poem-shell {
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    body[data-theme="broadcast"] h1 {
+      max-width: none;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-size: clamp(3.8rem, 17vw, 13rem);
+      letter-spacing: -0.065em;
+    }
+
+    body[data-theme="broadcast"] blockquote {
+      max-width: 28ch;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.6rem, 4.6vw, 4.2rem);
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+      color: var(--accent);
+      text-transform: none;
+    }
+
+    @media (max-width: 760px) {
+      .topbar,
+      .footer { align-items: flex-start; flex-direction: column; }
+      .footer .actions { margin-left: 0; justify-content: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
       }
     }
   </style>
 </head>
-<body>
+<body data-theme="broadcast">
   <main>
-    <h1 class="sr-only" id="site-title">abj.lol broccoli ambassador</h1>
-    <p class="tagline" aria-describedby="site-title">Broccoli ambassador on standby for your weirdest ideas.</p>
-    <pre id="broccoli-stage" role="img" aria-labelledby="broccoli-caption" aria-live="off">
-          ,@@@@@@@,
-       ,@@@@@@@@@@@@@,
-     ,@@@@@@'   `@@@@@@,
-    ,@@@@@         @@@@@,
-   @@@@@   .-""-.   @@@@@
-   @@@@   /  o o \   @@@@
-   @@@@   |  (_) |   @@@@
-   @@@@   \  ^  /   @@@@
-    @@@@   `-^-`   @@@@
-     @@@@@.     .@@@@@
-      `@@@@@@@ @@@@@@'
-         `@@@@@@@@'
-           || ||
-           || ||
-           VV VV
+    <header class="topbar">
+      <a class="brand" href="/">abj.lol</a>
+    </header>
 
-      hi, curious traveler.
-      broccoli crew saved you a seat.
+    <article class="poem-shell" aria-labelledby="poem-title">
+      <div class="poem-heading">
+        <p class="kicker" id="selection-label">Selected by the hour</p>
+        <h1 id="poem-title">Loading</h1>
+        <p class="meta" id="poem-meta"></p>
+      </div>
+      <div class="poem-body">
+        <blockquote id="poem-text"></blockquote>
+        <div class="credit">
+          <span id="poem-credit"></span>
+        </div>
+      </div>
+    </article>
 
-      pause if your eyes need a breather
-    </pre>
-    <p id="broccoli-caption" class="sr-only">Animated ASCII broccoli waves hello and banters with visitors.</p>
-    <div class="motion-controls">
-      <button type="button" class="motion-toggle" data-motion-toggle aria-pressed="true">Pause animation</button>
-      <span class="motion-note" data-motion-note hidden>Animation paused to respect reduced-motion settings.</span>
-    </div>
+    <footer class="footer">
+      <span id="local-time"></span>
+      <span>A poem, selected for this visit.</span>
+      <div class="actions" aria-label="Poem actions">
+        <button type="button" id="another-poem">Another poem</button>
+        <a class="button" id="source-link" href="https://www.gutenberg.org/" rel="noreferrer">Source</a>
+        <a class="button" id="permalink" href="/">Permalink</a>
+      </div>
+    </footer>
   </main>
+
   <script>
     (function () {
-      const stage = document.getElementById("broccoli-stage");
-      const toggleButton = document.querySelector("[data-motion-toggle]");
-      const motionNote = document.querySelector("[data-motion-note]");
-      const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-      const baseTop = [
-        "          ,@@@@@@@,",
-        "       ,@@@@@@@@@@@@@,",
-        "     ,@@@@@@'   `@@@@@@,",
-        "    ,@@@@@         @@@@@,",
-        "   @@@@@   .-\"\"-.   @@@@@",
-        "   @@@@   /  o o \\   @@@@",
-        "   @@@@   |  (_) |   @@@@",
-        "   @@@@   \\  ^  /   @@@@",
-        "    @@@@   `-^-`   @@@@",
-        "     @@@@@.     .@@@@@",
-        "      `@@@@@@@ @@@@@@'",
-        "         `@@@@@@@@'",
-        "           || ||",
-        "           || ||",
-        "           VV VV"
+      const poems = [
+        {
+          id: "dickinson-hope",
+          hours: [4, 5, 6],
+          title: "Hope is the thing with feathers",
+          author: "Emily Dickinson",
+          source: "Poems by Emily Dickinson, Series Two",
+          sourceUrl: "https://www.gutenberg.org/ebooks/12242",
+          text: "Hope is the thing with feathers\nThat perches in the soul,\nAnd sings the tune without the words,\nAnd never stops at all,",
+          palette: { paper: "#fff3a6", ink: "#18130a", muted: "#695d35", line: "rgba(24,19,10,.28)", accent: "#2b6e3f", surface: "rgba(255,255,255,.18)", glow: "rgba(43,110,63,.24)" }
+        },
+        {
+          id: "blake-sunflower",
+          hours: [7, 8, 9, 10],
+          title: "Ah! Sun-flower",
+          author: "William Blake",
+          source: "Songs of Experience",
+          sourceUrl: "https://www.gutenberg.org/ebooks/1934",
+          text: "Ah Sun-flower! weary of time,\nWho countest the steps of the Sun:\nSeeking after that sweet golden clime\nWhere the travellers journey is done.",
+          palette: { paper: "#f3d21b", ink: "#11100a", muted: "#5f4f08", line: "rgba(17,16,10,.28)", accent: "#9b2d18", surface: "rgba(255,255,255,.2)", glow: "rgba(155,45,24,.22)" }
+        },
+        {
+          id: "stevens-jar",
+          hours: [11, 12, 13, 14],
+          title: "Anecdote of the Jar",
+          author: "Wallace Stevens",
+          source: "Harmonium",
+          sourceUrl: "https://www.gutenberg.org/ebooks/3187",
+          text: "I placed a jar in Tennessee,\nAnd round it was, upon a hill.\nIt made the slovenly wilderness\nSurround that hill.",
+          palette: { paper: "#c9c4ad", ink: "#171612", muted: "#5f5a47", line: "rgba(23,22,18,.3)", accent: "#344f2f", surface: "rgba(255,255,255,.18)", glow: "rgba(52,79,47,.22)" }
+        },
+        {
+          id: "wordsworth-daffodils",
+          hours: [15, 16, 17],
+          title: "I Wandered Lonely as a Cloud",
+          author: "William Wordsworth",
+          source: "Poems in Two Volumes",
+          sourceUrl: "https://www.gutenberg.org/ebooks/12145",
+          text: "I wandered lonely as a cloud\nThat floats on high o'er vales and hills,\nWhen all at once I saw a crowd,\nA host, of golden daffodils;",
+          palette: { paper: "#ffe45c", ink: "#141006", muted: "#6b5b12", line: "rgba(20,16,6,.26)", accent: "#2f64c8", surface: "rgba(255,255,255,.18)", glow: "rgba(47,100,200,.24)" }
+        },
+        {
+          id: "keats-bright-star",
+          hours: [18, 19, 20],
+          title: "Bright Star",
+          author: "John Keats",
+          source: "Poems 1817",
+          sourceUrl: "https://www.gutenberg.org/ebooks/8209",
+          text: "Bright star, would I were stedfast as thou art—\nNot in lone splendour hung aloft the night\nAnd watching, with eternal lids apart,\nLike nature's patient, sleepless Eremite,",
+          palette: { paper: "#10162d", ink: "#fff7de", muted: "#b9b3a2", line: "rgba(255,247,222,.28)", accent: "#ffcc4d", surface: "rgba(0,0,0,.18)", glow: "rgba(255,204,77,.28)" }
+        },
+        {
+          id: "shelley-moon",
+          hours: [21, 22, 23, 0, 1, 2, 3],
+          title: "To the Moon",
+          author: "Percy Bysshe Shelley",
+          source: "The Complete Poetical Works of Percy Bysshe Shelley",
+          sourceUrl: "https://www.gutenberg.org/ebooks/4800",
+          text: "Art thou pale for weariness\nOf climbing heaven and gazing on the earth,\nWandering companionless\nAmong the stars that have a different birth,—",
+          palette: { paper: "#070817", ink: "#f4f0ff", muted: "#aaa5c7", line: "rgba(244,240,255,.24)", accent: "#b9d7ff", surface: "rgba(255,255,255,.08)", glow: "rgba(185,215,255,.24)" }
+        }
       ];
 
-      const defaultMessage = [
-        "      hi, curious traveler.",
-        "      broccoli crew saved you a seat.",
-        "",
-        "      pause if your eyes need a breather"
-      ];
+      const body = document.body;
+      const title = document.getElementById("poem-title");
+      const meta = document.getElementById("poem-meta");
+      const text = document.getElementById("poem-text");
+      const credit = document.getElementById("poem-credit");
+      const sourceLink = document.getElementById("source-link");
+      const permalink = document.getElementById("permalink");
+      const localTime = document.getElementById("local-time");
+      const anotherPoem = document.getElementById("another-poem");
 
-      function buildFrame({ eyes, cheeks, mouth, shoulders, message }) {
-        const lines = [...baseTop];
-        if (eyes) lines[5] = eyes;
-        if (cheeks) lines[6] = cheeks;
-        if (mouth) lines[7] = mouth;
-        if (shoulders) lines[8] = shoulders;
-        lines.push("");
-        lines.push(...(message || defaultMessage));
-        return lines.join("\n");
+      function dayOfYear(date) {
+        const start = new Date(date.getFullYear(), 0, 0);
+        return Math.floor((date - start) / 86400000);
       }
 
-      const frames = [
-        buildFrame({}),
-        buildFrame({
-          eyes: "   @@@@   /  o  - \\   @@@@",
-          cheeks: "   @@@@   |  ( ) |   @@@@",
-          mouth: "   @@@@   \\  ^  /   @@@@",
-          message: [
-            "      broccoli bestie ready for duty.",
-            "      mobile pals can read every bit.",
-            "",
-            "      bring your silliest ideas to test."
-          ]
-        }),
-        buildFrame({
-          eyes: "   @@@@   /  O  O \\   @@@@",
-          cheeks: "   @@@@   |  \\_/ |   @@@@",
-          mouth: "   @@@@   \\  u  /   @@@@",
-          message: [
-            "      whisper ideas; it nods along.",
-            "      snack suggestions also welcome.",
-            "",
-            "      mostly here for playful scheming."
-          ]
-        }),
-        buildFrame({
-          eyes: "   @@@@   /  ^  o \\   @@@@",
-          cheeks: "   @@@@   |  ( ) |   @@@@",
-          mouth: "   @@@@   \\  >  /   @@@@",
-          message: [
-            "      it keeps playful nonsense ready.",
-            "      your idea already made the cut.",
-            "",
-            "      share one more and it will shimmy."
-          ]
-        }),
-        buildFrame({
-          eyes: "   @@@@   /  ^  ^ \\   @@@@",
-          cheeks: "   @@@@   |  ( ) |   @@@@",
-          mouth: "   @@@@   \\  w  /   @@@@",
-          shoulders: "    @@@@    \\_/    @@@@",
-          message: [
-            "      loop's done. breathe and plot.",
-            "      it cheers for every brainstorm.",
-            "",
-            "      press play for another cheer loop."
-          ]
-        })
-      ];
-
-      const frameDuration = 30000 / frames.length;
-      let frameIndex = 0;
-      let timerId = null;
-
-      const renderFrame = (index) => {
-        stage.textContent = frames[index];
-      };
-
-      const startAnimation = () => {
-        if (timerId !== null) return;
-        renderFrame(frameIndex);
-        timerId = window.setInterval(() => {
-          frameIndex = (frameIndex + 1) % frames.length;
-          renderFrame(frameIndex);
-        }, frameDuration);
-      };
-
-      const stopAnimation = () => {
-        if (timerId !== null) {
-          window.clearInterval(timerId);
-          timerId = null;
-        }
-        frameIndex = 0;
-        renderFrame(frameIndex);
-      };
-
-      const setPlaying = (shouldPlay) => {
-        if (shouldPlay) {
-          startAnimation();
-          toggleButton.textContent = "Pause animation";
-          toggleButton.setAttribute("aria-pressed", "true");
-          motionNote.hidden = true;
-        } else {
-          stopAnimation();
-          toggleButton.textContent = "Play animation";
-          toggleButton.setAttribute("aria-pressed", "false");
-          motionNote.hidden = !motionQuery.matches;
-        }
-      };
-
-      toggleButton.addEventListener("click", () => {
-        const willPlay = timerId === null;
-        setPlaying(willPlay);
-      });
-
-      motionQuery.addEventListener("change", (event) => {
-        setPlaying(!event.matches);
-      });
-
-      if (motionQuery.matches) {
-        setPlaying(false);
-      } else {
-        setPlaying(true);
+      function selectedPoem(date) {
+        const hour = date.getHours();
+        const candidates = poems.filter((poem) => poem.hours.includes(hour));
+        return candidates[dayOfYear(date) % candidates.length] || poems[0];
       }
+
+      function poemFromUrl() {
+        const id = new URLSearchParams(window.location.search).get("poem");
+        return poems.find((poem) => poem.id === id);
+      }
+
+
+
+      function applyPoemPalette(poem) {
+        if (body.dataset.theme !== "broadcast" || !poem.palette) return;
+        body.style.setProperty("--paper", poem.palette.paper);
+        body.style.setProperty("--ink", poem.palette.ink);
+        body.style.setProperty("--muted", poem.palette.muted);
+        body.style.setProperty("--line", poem.palette.line);
+        body.style.setProperty("--accent", poem.palette.accent);
+        body.style.setProperty("--surface", poem.palette.surface);
+        body.style.background = "radial-gradient(circle at 50% 18%, " + poem.palette.glow + ", transparent 28rem), linear-gradient(" + poem.palette.paper + ", " + poem.palette.paper + ")";
+      }
+
+      function resetInlinePalette() {
+        body.style.removeProperty("--paper");
+        body.style.removeProperty("--ink");
+        body.style.removeProperty("--muted");
+        body.style.removeProperty("--line");
+        body.style.removeProperty("--accent");
+        body.style.removeProperty("--surface");
+        body.style.background = "";
+      }
+
+      function renderPoem(poem, updateUrl) {
+        const now = new Date();
+        resetInlinePalette();
+        applyPoemPalette(poem);
+        title.textContent = poem.title;
+        meta.textContent = poem.author;
+        text.textContent = poem.text;
+        credit.textContent = poem.source;
+        sourceLink.href = poem.sourceUrl;
+        permalink.href = "?poem=" + encodeURIComponent(poem.id);
+        localTime.textContent = now.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+        if (updateUrl) {
+          const params = new URLSearchParams(window.location.search);
+          params.set("poem", poem.id);
+          window.history.replaceState({}, "", "?" + params.toString());
+        }
+      }
+
+
+      anotherPoem.addEventListener("click", () => {
+        const currentId = new URLSearchParams(window.location.search).get("poem");
+        const choices = poems.filter((poem) => poem.id !== currentId);
+        renderPoem(choices[Math.floor(Math.random() * choices.length)] || poems[0], true);
+      });
+
+      renderPoem(poemFromUrl() || selectedPoem(new Date()), Boolean(poemFromUrl()));
     })();
   </script>
 </body>
