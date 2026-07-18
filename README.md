@@ -1,6 +1,8 @@
 # abj.lol
 
-A tiny time-aware poetry gallery. The site selects a different curated public-domain poem for each of the day's 144 ten-minute windows, using the visitor's local time.
+A tiny time-aware poetry gallery. The site selects a different curated poem for each of the day's 144 ten-minute windows, using the visitor's local time.
+
+The collection is split evenly: 72 public-domain excerpts appear on the page, while 72 modern selections link to authorized reproductions at sources such as the Academy of American Poets, Poetry Foundation, and The New Yorker. Linked poems are represented by title and author without reproducing their text.
 
 ## Local development
 

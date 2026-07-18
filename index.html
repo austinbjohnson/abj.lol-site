@@ -224,7 +224,7 @@
       <span>A poem, selected for this visit.</span>
       <div class="actions" aria-label="Poem actions">
         <button type="button" id="another-poem">Another poem</button>
-        <a class="button" id="source-link" href="https://www.gutenberg.org/" rel="noreferrer">Source</a>
+        <a class="button" id="source-link" href="https://www.gutenberg.org/" target="_blank" rel="noreferrer">Source</a>
         <a class="button" id="permalink" href="/">Permalink</a>
       </div>
     </footer>
@@ -283,13 +283,16 @@
 
       function renderPoem(poem, updateUrl) {
         const now = new Date();
+        const isLinkedPoem = poem.format === "linked";
         resetInlinePalette();
         applyPoemPalette(poem);
         title.textContent = poem.title;
         meta.textContent = poem.author;
         text.textContent = poem.text;
-        credit.textContent = poem.source;
+        text.hidden = isLinkedPoem;
+        credit.textContent = isLinkedPoem ? "Available at " + poem.source : poem.source;
         sourceLink.href = poem.sourceUrl;
+        sourceLink.textContent = isLinkedPoem ? "Read poem" : "Source";
         permalink.href = "?poem=" + encodeURIComponent(poem.id);
         localTime.textContent = now.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
         if (updateUrl) {
