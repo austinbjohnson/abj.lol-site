@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A curated poem selected by the hour.">
+  <meta name="description" content="A curated poem selected every ten minutes.">
   <title>abj.lol</title>
   <style>
     :root {
@@ -207,7 +207,7 @@
 
     <article class="poem-shell" aria-labelledby="poem-title">
       <div class="poem-heading">
-        <p class="kicker" id="selection-label">Selected by the hour</p>
+        <p class="kicker" id="selection-label">Selected every ten minutes</p>
         <h1 id="poem-title">Loading</h1>
         <p class="meta" id="poem-meta"></p>
       </div>
@@ -230,70 +230,10 @@
     </footer>
   </main>
 
+  <script src="poems.js"></script>
   <script>
     (function () {
-      const poems = [
-        {
-          id: "dickinson-hope",
-          hours: [4, 5, 6],
-          title: "Hope is the thing with feathers",
-          author: "Emily Dickinson",
-          source: "Poems by Emily Dickinson, Series Two",
-          sourceUrl: "https://www.gutenberg.org/ebooks/12242",
-          text: "Hope is the thing with feathers\nThat perches in the soul,\nAnd sings the tune without the words,\nAnd never stops at all,",
-          palette: { paper: "#fff3a6", ink: "#18130a", muted: "#695d35", line: "rgba(24,19,10,.28)", accent: "#2b6e3f", surface: "rgba(255,255,255,.18)", glow: "rgba(43,110,63,.24)" }
-        },
-        {
-          id: "blake-sunflower",
-          hours: [7, 8, 9, 10],
-          title: "Ah! Sun-flower",
-          author: "William Blake",
-          source: "Songs of Experience",
-          sourceUrl: "https://www.gutenberg.org/ebooks/1934",
-          text: "Ah Sun-flower! weary of time,\nWho countest the steps of the Sun:\nSeeking after that sweet golden clime\nWhere the travellers journey is done.",
-          palette: { paper: "#f3d21b", ink: "#11100a", muted: "#5f4f08", line: "rgba(17,16,10,.28)", accent: "#9b2d18", surface: "rgba(255,255,255,.2)", glow: "rgba(155,45,24,.22)" }
-        },
-        {
-          id: "stevens-jar",
-          hours: [11, 12, 13, 14],
-          title: "Anecdote of the Jar",
-          author: "Wallace Stevens",
-          source: "Harmonium",
-          sourceUrl: "https://www.gutenberg.org/ebooks/3187",
-          text: "I placed a jar in Tennessee,\nAnd round it was, upon a hill.\nIt made the slovenly wilderness\nSurround that hill.",
-          palette: { paper: "#c9c4ad", ink: "#171612", muted: "#5f5a47", line: "rgba(23,22,18,.3)", accent: "#344f2f", surface: "rgba(255,255,255,.18)", glow: "rgba(52,79,47,.22)" }
-        },
-        {
-          id: "wordsworth-daffodils",
-          hours: [15, 16, 17],
-          title: "I Wandered Lonely as a Cloud",
-          author: "William Wordsworth",
-          source: "Poems in Two Volumes",
-          sourceUrl: "https://www.gutenberg.org/ebooks/12145",
-          text: "I wandered lonely as a cloud\nThat floats on high o'er vales and hills,\nWhen all at once I saw a crowd,\nA host, of golden daffodils;",
-          palette: { paper: "#ffe45c", ink: "#141006", muted: "#6b5b12", line: "rgba(20,16,6,.26)", accent: "#2f64c8", surface: "rgba(255,255,255,.18)", glow: "rgba(47,100,200,.24)" }
-        },
-        {
-          id: "keats-bright-star",
-          hours: [18, 19, 20],
-          title: "Bright Star",
-          author: "John Keats",
-          source: "Poems 1817",
-          sourceUrl: "https://www.gutenberg.org/ebooks/8209",
-          text: "Bright star, would I were stedfast as thou art—\nNot in lone splendour hung aloft the night\nAnd watching, with eternal lids apart,\nLike nature's patient, sleepless Eremite,",
-          palette: { paper: "#10162d", ink: "#fff7de", muted: "#b9b3a2", line: "rgba(255,247,222,.28)", accent: "#ffcc4d", surface: "rgba(0,0,0,.18)", glow: "rgba(255,204,77,.28)" }
-        },
-        {
-          id: "shelley-moon",
-          hours: [21, 22, 23, 0, 1, 2, 3],
-          title: "To the Moon",
-          author: "Percy Bysshe Shelley",
-          source: "The Complete Poetical Works of Percy Bysshe Shelley",
-          sourceUrl: "https://www.gutenberg.org/ebooks/4800",
-          text: "Art thou pale for weariness\nOf climbing heaven and gazing on the earth,\nWandering companionless\nAmong the stars that have a different birth,—",
-          palette: { paper: "#070817", ink: "#f4f0ff", muted: "#aaa5c7", line: "rgba(244,240,255,.24)", accent: "#b9d7ff", surface: "rgba(255,255,255,.08)", glow: "rgba(185,215,255,.24)" }
-        }
-      ];
+      const poems = POEMS;
 
       const body = document.body;
       const title = document.getElementById("poem-title");
@@ -305,15 +245,12 @@
       const localTime = document.getElementById("local-time");
       const anotherPoem = document.getElementById("another-poem");
 
-      function dayOfYear(date) {
-        const start = new Date(date.getFullYear(), 0, 0);
-        return Math.floor((date - start) / 86400000);
+      function tenMinuteSlot(date) {
+        return (date.getHours() * 6) + Math.floor(date.getMinutes() / 10);
       }
 
       function selectedPoem(date) {
-        const hour = date.getHours();
-        const candidates = poems.filter((poem) => poem.hours.includes(hour));
-        return candidates[dayOfYear(date) % candidates.length] || poems[0];
+        return poems[tenMinuteSlot(date)] || poems[0];
       }
 
       function poemFromUrl() {
@@ -369,7 +306,12 @@
         renderPoem(choices[Math.floor(Math.random() * choices.length)] || poems[0], true);
       });
 
-      renderPoem(poemFromUrl() || selectedPoem(new Date()), Boolean(poemFromUrl()));
+      const initialPermalinkPoem = poemFromUrl();
+      renderPoem(initialPermalinkPoem || selectedPoem(new Date()), Boolean(initialPermalinkPoem));
+
+      if (!initialPermalinkPoem) {
+        window.setInterval(() => renderPoem(selectedPoem(new Date()), false), 60000);
+      }
     })();
   </script>
 </body>

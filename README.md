@@ -1,17 +1,13 @@
-# abj.lol placeholder
+# abj.lol
 
-Playful landing page for `abj.lol` starring a broccoli ambassador hyping every weird idea, now with a gentle ASCII animation loop.
-
-```
-       ,@@@@@@@@@@@@@@@@@@@@@,
-    ,@@@@@@@@@@@@@@@@@@@@@@@@@@@@,
- ,@@@@@@@@@@@@@@@'     `@@@@@@@@@@@@@@@,
-@ broccoli bestie cheering for your brain @
-   pronounces "abj" like "abbey joy" but with more giggles
-```
+A tiny time-aware poetry gallery. The site selects a different curated public-domain poem for each of the day's 144 ten-minute windows, using the visitor's local time.
 
 ## Local development
 
-Open `index.html` directly in a browser or serve with any static file server to preview the placeholder.
+Serve the repository with any static file server (loading `index.html` directly will also work in most browsers):
 
-The page respects `prefers-reduced-motion` and exposes a toggle so you can pause or resume the 30-second animation loop while testing.
+```sh
+python3 -m http.server 8000
+```
+
+Poem data lives in `poems.js`. Each entry has a stable ID for `?poem=` permalinks. The page is static and GitHub Pages compatible.
