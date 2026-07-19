@@ -289,7 +289,7 @@
         title.textContent = poem.title;
         meta.textContent = poem.author;
         text.textContent = poem.text;
-        text.hidden = isLinkedPoem;
+        text.hidden = !poem.text;
         credit.textContent = isLinkedPoem ? "Available at " + poem.source : poem.source;
         sourceLink.href = poem.sourceUrl;
         sourceLink.textContent = isLinkedPoem ? "Read poem" : "Source";

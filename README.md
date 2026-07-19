@@ -2,7 +2,7 @@
 
 A tiny time-aware poetry gallery. The site selects a different curated poem for each of the day's 144 ten-minute windows, using the visitor's local time.
 
-The collection is split evenly: 72 public-domain excerpts appear on the page, while 72 modern selections link to authorized reproductions at sources such as the Academy of American Poets, Poetry Foundation, and The New Yorker. Linked poems are represented by title and author without reproducing their text.
+The collection is split evenly: 72 public-domain excerpts and 72 linked selections from modern or taste-defining poets. For a linked selection, the page may reproduce an excerpt of up to 50% of the source poem, aiming for approximately 280 characters when the poem and verified source allow it. Every linked selection credits and links to its public source.
 
 ## Local development
 

@@ -25,7 +25,7 @@ const POEMS = [
     "author": "Mary Oliver",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/summer-day",
-    "text": "",
+    "text": "Who made the world? Who made the swan, and the black bear? Who made the grasshopper? This grasshopper, I mean— the one who has flung herself out of the grass, the one who is eating sugar out of my hand, who is moving her jaws back and forth instead of up and down— who is gazing…",
     "slot": 1,
     "palette": {
       "paper": "#080817",
@@ -35,7 +35,9 @@ const POEMS = [
       "accent": "#b9d7ff",
       "surface": "rgba(255,255,255,.08)",
       "glow": "rgba(185,215,255,.24)"
-    }
+    },
+    "excerptChars": 278,
+    "sourcePoemChars": 833
   },
   {
     "id": "rossetti-before-the-paling-of-the-stars",
@@ -62,7 +64,7 @@ const POEMS = [
     "author": "Mary Oliver",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/beans",
-    "text": "",
+    "text": "They’re not like peaches or squash.Plumpness isn’t for them. They likebeing lean, as if for the narrowpath. The beans themselves sit qui-etly inside their green pods. In-stinctively one picks with care, never tearing down the fine vine,never noticing their crisp bod-ies, or…",
     "slot": 3,
     "palette": {
       "paper": "#080817",
@@ -72,7 +74,9 @@ const POEMS = [
       "accent": "#b9d7ff",
       "surface": "rgba(255,255,255,.08)",
       "glow": "rgba(185,215,255,.24)"
-    }
+    },
+    "excerptChars": 274,
+    "sourcePoemChars": 711
   },
   {
     "id": "wordsworth-i-wandered-lonely-as-a-cloud",
@@ -321,7 +325,7 @@ const POEMS = [
     "author": "Leonard Cohen",
     "source": "The New Yorker",
     "sourceUrl": "https://www.newyorker.com/magazine/2016/06/20/steer-your-way-by-leonard-cohen",
-    "text": "",
+    "text": "Steer your way through the ruins of the Altar and the Mall\nSteer your way through the fables of Creation and the Fall\nSteer your way past the Palaces that rise above the rot\nYear by year\nMonth by month\nDay by day\nThought by thought…",
     "slot": 17,
     "palette": {
       "paper": "#17102a",
@@ -331,7 +335,9 @@ const POEMS = [
       "accent": "#e9a9ff",
       "surface": "rgba(255,255,255,.08)",
       "glow": "rgba(233,169,255,.22)"
-    }
+    },
+    "excerptChars": 231,
+    "sourcePoemChars": 1177
   },
   {
     "id": "wheatley-goliath-of-gath",
@@ -358,7 +364,7 @@ const POEMS = [
     "author": "E. E. Cummings",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/la-guerre-ii",
-    "text": "",
+    "text": "O sweet spontaneous  earth how often have  the  doting                   fingers of  prurient philosophers pinched  and  poked   thee  ,has the naughty thumb  of science prodded  thy           beauty     how  often have religions taken  thee upon…",
     "slot": 19,
     "palette": {
       "paper": "#17102a",
@@ -368,7 +374,9 @@ const POEMS = [
       "accent": "#e9a9ff",
       "surface": "rgba(255,255,255,.08)",
       "glow": "rgba(233,169,255,.22)"
-    }
+    },
+    "excerptChars": 246,
+    "sourcePoemChars": 498
   },
   {
     "id": "blake-the-human-abstract",
@@ -395,7 +403,7 @@ const POEMS = [
     "author": "E. E. Cummings",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/heres-little-mouse",
-    "text": "",
+    "text": "here’s a little mouse) and\nwhat does he think about, i\nwonder as over this\nfloor (quietly with\nbright eyes) drifts (nobody\ncan tell because\nNobody knows, or why\njerks Here &, here,\ngr(oo)ving the room’s Silence) this like\na littlest\npoem a\n(with wee ears and see?\ntail frisks)…",
     "slot": 21,
     "palette": {
       "paper": "#17102a",
@@ -405,7 +413,9 @@ const POEMS = [
       "accent": "#e9a9ff",
       "surface": "rgba(255,255,255,.08)",
       "glow": "rgba(233,169,255,.22)"
-    }
+    },
+    "excerptChars": 276,
+    "sourcePoemChars": 603
   },
   {
     "id": "keats-a-thing-of-beauty-endymion",
@@ -432,7 +442,7 @@ const POEMS = [
     "author": "E. E. Cummings",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/chansons-innocentes-ii",
-    "text": "",
+    "text": "hist whist\nlittle ghostthings\ntip-toe\ntwinkle-toe\nlittle twitchy\nwitches and tingling\ngoblins\nhob-a-nob hob-a-nob\nlittle hoppy happy\ntoad in tweeds\ntweeds\nlittle itchy mousies\nwith scuttling\neyes rustle and run and\nhidehidehide\nwhisk…",
     "slot": 23,
     "palette": {
       "paper": "#17102a",
@@ -442,7 +452,9 @@ const POEMS = [
       "accent": "#e9a9ff",
       "surface": "rgba(255,255,255,.08)",
       "glow": "rgba(233,169,255,.22)"
-    }
+    },
+    "excerptChars": 233,
+    "sourcePoemChars": 515
   },
   {
     "id": "whitman-a-boston-ballad-1854",
@@ -469,7 +481,7 @@ const POEMS = [
     "author": "E. E. Cummings",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/sonnets-realities-i",
-    "text": "",
+    "text": "the Cambridge ladies who live in furnished souls\nare unbeautiful and have comfortable minds\n(also,with the church’s protestant blessings\ndaughters,unscented shapeless spirited)\nthey believe in Christ and Longfellow,both dead,\nare invariably interested in so many things—…",
     "slot": 25,
     "palette": {
       "paper": "#182641",
@@ -479,7 +491,9 @@ const POEMS = [
       "accent": "#9fd8ff",
       "surface": "rgba(255,255,255,.08)",
       "glow": "rgba(159,216,255,.24)"
-    }
+    },
+    "excerptChars": 270,
+    "sourcePoemChars": 590
   },
   {
     "id": "poe-for-annie",
@@ -506,7 +520,7 @@ const POEMS = [
     "author": "E. E. Cummings",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/post-impressions-vi",
-    "text": "",
+    "text": "into the strenuous briefness\nLife:\nhandorgans and April\ndarkness,friends\ni charge laughing.\nInto the hair-thin tints\nof yellow dawn,\ninto the women-coloured twilight…",
     "slot": 27,
     "palette": {
       "paper": "#182641",
@@ -516,7 +530,9 @@ const POEMS = [
       "accent": "#9fd8ff",
       "surface": "rgba(255,255,255,.08)",
       "glow": "rgba(159,216,255,.24)"
-    }
+    },
+    "excerptChars": 165,
+    "sourcePoemChars": 330
   },
   {
     "id": "hopkins-the-sea-took-pity",
@@ -543,7 +559,7 @@ const POEMS = [
     "author": "E. E. Cummings",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/amores-vii",
-    "text": "",
+    "text": "O Distinct\nLady of my unkempt adoration\nif i have made\na fragile certain\nsong under the window of your soul\nit is not like any songs\n(the singers the others\nthey have been faithful\nto many things and which\ndie\ni have been sometimes true\nto Nothing and which lives…",
     "slot": 29,
     "palette": {
       "paper": "#182641",
@@ -553,7 +569,9 @@ const POEMS = [
       "accent": "#9fd8ff",
       "surface": "rgba(255,255,255,.08)",
       "glow": "rgba(159,216,255,.24)"
-    }
+    },
+    "excerptChars": 263,
+    "sourcePoemChars": 953
   },
   {
     "id": "browning-mother-and-poet",
@@ -580,7 +598,7 @@ const POEMS = [
     "author": "E. E. Cummings",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/songs-vi-0",
-    "text": "",
+    "text": "after five\ntimes the poem\nof thy remembrance\nsurprises with refrain\nof unreasoning summer\nthat by responding\nways cloaked with renewal\nmy body turns toward\nthee\nagain for the stars have been…",
     "slot": 31,
     "palette": {
       "paper": "#182641",
@@ -590,7 +608,9 @@ const POEMS = [
       "accent": "#9fd8ff",
       "surface": "rgba(255,255,255,.08)",
       "glow": "rgba(159,216,255,.24)"
-    }
+    },
+    "excerptChars": 190,
+    "sourcePoemChars": 386
   },
   {
     "id": "bronte-how-still-how-happy",
@@ -617,7 +637,7 @@ const POEMS = [
     "author": "E. E. Cummings",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/amores-vi-0",
-    "text": "",
+    "text": "i like\nto think that on\nthe flower you gave me when we\nloved\nthe far-\ndeparted mouth sweetly-saluted\nlingers.\nif one marvel\nseeing the hunger of my\nlips for a dead thing,\ni shall instruct\nhim silently with becoming\nsteps to seek\nyour face and i…",
     "slot": 33,
     "palette": {
       "paper": "#182641",
@@ -627,7 +647,9 @@ const POEMS = [
       "accent": "#9fd8ff",
       "surface": "rgba(255,255,255,.08)",
       "glow": "rgba(159,216,255,.24)"
-    }
+    },
+    "excerptChars": 244,
+    "sourcePoemChars": 496
   },
   {
     "id": "wilde-the-ballad-of-reading-gaol",
@@ -691,7 +713,7 @@ const POEMS = [
     "author": "Walt Whitman",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/long-too-long-america",
-    "text": "",
+    "text": "Long, too long America,\nTraveling roads all even and peaceful you learn'd from joys and prosperity only,…",
     "slot": 37,
     "palette": {
       "paper": "#dce7ed",
@@ -701,7 +723,9 @@ const POEMS = [
       "accent": "#b44835",
       "surface": "rgba(255,255,255,.2)",
       "glow": "rgba(255,180,120,.28)"
-    }
+    },
+    "excerptChars": 104,
+    "sourcePoemChars": 379
   },
   {
     "id": "dickinson-summer-begins-to-have-the-look",
@@ -728,7 +752,7 @@ const POEMS = [
     "author": "Walt Whitman",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/year-trembled-and-reeld-beneath-me",
-    "text": "",
+    "text": "Year that trembled and reel'd beneath me!\nYour summer wind was warm enough, yet the air I breathed froze me,…",
     "slot": 39,
     "palette": {
       "paper": "#dce7ed",
@@ -738,7 +762,9 @@ const POEMS = [
       "accent": "#b44835",
       "surface": "rgba(255,255,255,.2)",
       "glow": "rgba(255,180,120,.28)"
-    }
+    },
+    "excerptChars": 108,
+    "sourcePoemChars": 312
   },
   {
     "id": "rossetti-from-sunset-to-star-rise",
@@ -765,7 +791,7 @@ const POEMS = [
     "author": "Walt Whitman",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/not-pilot",
-    "text": "",
+    "text": "Not the pilot has charged himself to bring his ship into port, though beaten back and many times baffled;\nNot the pathfinder penetrating inland weary and long,…",
     "slot": 41,
     "palette": {
       "paper": "#dce7ed",
@@ -775,7 +801,9 @@ const POEMS = [
       "accent": "#b44835",
       "surface": "rgba(255,255,255,.2)",
       "glow": "rgba(255,180,120,.28)"
-    }
+    },
+    "excerptChars": 159,
+    "sourcePoemChars": 413
   },
   {
     "id": "whitman-whispers-of-heavenly-death",
@@ -802,7 +830,7 @@ const POEMS = [
     "author": "Walt Whitman",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/toilsome-i-wanderd-virginias-woods",
-    "text": "",
+    "text": "As toilsome I wander’d Virginia’s woods,\nTo the music of rustling leaves kick’d by my feet, (for ’twas autumn,)\nI mark’d at the foot of a tree the grave of a soldier;\nMortally wounded he and buried on the retreat, (easily all could understand,)…",
     "slot": 43,
     "palette": {
       "paper": "#dce7ed",
@@ -812,7 +840,9 @@ const POEMS = [
       "accent": "#b44835",
       "surface": "rgba(255,255,255,.2)",
       "glow": "rgba(255,180,120,.28)"
-    }
+    },
+    "excerptChars": 244,
+    "sourcePoemChars": 758
   },
   {
     "id": "poe-eldorado",
@@ -839,7 +869,7 @@ const POEMS = [
     "author": "Walt Whitman",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/march-ranks-hard-prest-and-road-unknown",
-    "text": "",
+    "text": "A march in the ranks hard-prest, and the road unknown,\nA route through a heavy wood with muffled steps in the darkness,\nOur army foil’d with loss severe, and the sullen remnant retreating,\nTill after midnight glimmer upon us the lights of a dim-lighted building,…",
     "slot": 45,
     "palette": {
       "paper": "#dce7ed",
@@ -849,7 +879,9 @@ const POEMS = [
       "accent": "#b44835",
       "surface": "rgba(255,255,255,.2)",
       "glow": "rgba(255,180,120,.28)"
-    }
+    },
+    "excerptChars": 262,
+    "sourcePoemChars": 1877
   },
   {
     "id": "hopkins-thee-god-i-come-from",
@@ -876,7 +908,7 @@ const POEMS = [
     "author": "Walt Whitman",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/bivouacs-fitful-flame",
-    "text": "",
+    "text": "By the bivouac’s fitful flame,\nA procession winding around me, solemn and sweet and slow;—but first I note,\nThe tents of the sleeping army, the fields’ and woods’ dim outline,\nThe darkness lit by spots of kindled fire—the silence,…",
     "slot": 47,
     "palette": {
       "paper": "#dce7ed",
@@ -886,7 +918,9 @@ const POEMS = [
       "accent": "#b44835",
       "surface": "rgba(255,255,255,.2)",
       "glow": "rgba(255,180,120,.28)"
-    }
+    },
+    "excerptChars": 230,
+    "sourcePoemChars": 608
   },
   {
     "id": "browning-pain-in-pleasure",
@@ -913,7 +947,7 @@ const POEMS = [
     "author": "Walt Whitman",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/army-corps-march",
-    "text": "",
+    "text": "With its cloud of skirmishers in advance,\nWith now the sound of a single shot snapping like a whip, and now an irregular volley,\nThe swarming ranks press on and on, the dense brigades press on,…",
     "slot": 49,
     "palette": {
       "paper": "#f6dda7",
@@ -923,7 +957,9 @@ const POEMS = [
       "accent": "#9a3c24",
       "surface": "rgba(255,255,255,.2)",
       "glow": "rgba(255,126,77,.24)"
-    }
+    },
+    "excerptChars": 193,
+    "sourcePoemChars": 413
   },
   {
     "id": "bronte-come-hither-child",
@@ -950,7 +986,7 @@ const POEMS = [
     "author": "Walt Whitman",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/bivouac-mountain-side",
-    "text": "",
+    "text": "I see before me now a traveling army halting,\nBelow a fertile valley spread, with barns and the orchards of summer,\nBehind, the terraced sides of a mountain, abrupt, in places rising high,…",
     "slot": 51,
     "palette": {
       "paper": "#f6dda7",
@@ -960,7 +996,9 @@ const POEMS = [
       "accent": "#9a3c24",
       "surface": "rgba(255,255,255,.2)",
       "glow": "rgba(255,126,77,.24)"
-    }
+    },
+    "excerptChars": 188,
+    "sourcePoemChars": 511
   },
   {
     "id": "wilde-easter-day",
@@ -987,7 +1025,7 @@ const POEMS = [
     "author": "Walt Whitman",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/cavalry-crossing-ford",
-    "text": "",
+    "text": "A line in long array where they wind betwixt green islands,\nThey take a serpentine course, their arms flash in the sun—hark to the musical clank,\nBehold the silvery river, in it the splashing horses loitering stop to drink,…",
     "slot": 53,
     "palette": {
       "paper": "#f6dda7",
@@ -997,7 +1035,9 @@ const POEMS = [
       "accent": "#9a3c24",
       "surface": "rgba(255,255,255,.2)",
       "glow": "rgba(255,126,77,.24)"
-    }
+    },
+    "excerptChars": 223,
+    "sourcePoemChars": 480
   },
   {
     "id": "emerson-mithridates",
@@ -1024,7 +1064,7 @@ const POEMS = [
     "author": "Walt Whitman",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/centenarians-story",
-    "text": "",
+    "text": "[Volunteer of 1861-2, at Washington Park, Brooklyn, assisting the Centenarian.]\nGive me your hand old Revolutionary,\nThe hill-top is nigh, but a few steps, (make room gentlemen,)\nUp the path you have follow'd me well, spite of your hundred and extra years,…",
     "slot": 55,
     "palette": {
       "paper": "#f6dda7",
@@ -1034,7 +1074,9 @@ const POEMS = [
       "accent": "#9a3c24",
       "surface": "rgba(255,255,255,.2)",
       "glow": "rgba(255,126,77,.24)"
-    }
+    },
+    "excerptChars": 256,
+    "sourcePoemChars": 6722
   },
   {
     "id": "dickinson-the-life-we-have-is-very-great",
@@ -1172,7 +1214,7 @@ const POEMS = [
     "author": "Ross Gay",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/throwing-children",
-    "text": "",
+    "text": "It is really something when a kid who has a hard time becomes a kid who’s having a good time in no small part thanks to you throwing that kid in the air again and again on a mile long walk home from the Indian joint as her mom looks sideways at you like you don’t need to keep…",
     "slot": 63,
     "palette": {
       "paper": "#fff3a6",
@@ -1182,7 +1224,9 @@ const POEMS = [
       "accent": "#2b6e3f",
       "surface": "rgba(255,255,255,.18)",
       "glow": "rgba(43,110,63,.24)"
-    }
+    },
+    "excerptChars": 276,
+    "sourcePoemChars": 1462
   },
   {
     "id": "hopkins-brothers",
@@ -1209,7 +1253,7 @@ const POEMS = [
     "author": "Ross Gay",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/again",
-    "text": "",
+    "text": "Because I love you, and beneath the dying stars\nI have become the delicate piston threading itself through your chest,\nI want to tell you a story I shouldn’t but will and in the meantime neglect, Love,\nthe discordant melody spilling from my ears but attend,…",
     "slot": 65,
     "palette": {
       "paper": "#fff3a6",
@@ -1219,7 +1263,9 @@ const POEMS = [
       "accent": "#2b6e3f",
       "surface": "rgba(255,255,255,.18)",
       "glow": "rgba(43,110,63,.24)"
-    }
+    },
+    "excerptChars": 257,
+    "sourcePoemChars": 4240
   },
   {
     "id": "browning-on-a-portrait-of-wordsworth",
@@ -1246,7 +1292,7 @@ const POEMS = [
     "author": "Ross Gay",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/bringing-shovel-down",
-    "text": "",
+    "text": "Because I love you, and beneath the uncountable starsI have become the delicate piston threading itself through your chest,I want to tell you a story I shouldn’t but will, and in the meantime neglect, Love,the discordant melody spilling from my ears but attend,instead, to this…",
     "slot": 67,
     "palette": {
       "paper": "#fff3a6",
@@ -1256,7 +1302,9 @@ const POEMS = [
       "accent": "#2b6e3f",
       "surface": "rgba(255,255,255,.18)",
       "glow": "rgba(43,110,63,.24)"
-    }
+    },
+    "excerptChars": 277,
+    "sourcePoemChars": 3733
   },
   {
     "id": "bronte-stars",
@@ -1283,7 +1331,7 @@ const POEMS = [
     "author": "Ross Gay",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/small-needful-fact",
-    "text": "",
+    "text": "Is that Eric Garner worked\nfor some time for the Parks and Rec.\nHorticultural Department, which means,\nperhaps, that with his very large hands,\nperhaps, in all likelihood,\nhe put gently into the earth\nsome plants which, most likely,…",
     "slot": 69,
     "palette": {
       "paper": "#fff3a6",
@@ -1293,7 +1341,9 @@ const POEMS = [
       "accent": "#2b6e3f",
       "surface": "rgba(255,255,255,.18)",
       "glow": "rgba(43,110,63,.24)"
-    }
+    },
+    "excerptChars": 232,
+    "sourcePoemChars": 487
   },
   {
     "id": "wilde-to-my-wife-with-a-copy-of-my-poems",
@@ -1320,7 +1370,7 @@ const POEMS = [
     "author": "Ross Gay",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/ode-puritan-me",
-    "text": "",
+    "text": "There is a puritan in methe brim of whosehat is so sharpit could cutyour tongue outwith a browso furrowed youcould plant beetsor turnips orsomething of coursegood for storinghe has not taken a napsince he was two years oldbecause he detestssloth above allhe is maybe the only…",
     "slot": 71,
     "palette": {
       "paper": "#fff3a6",
@@ -1330,7 +1380,9 @@ const POEMS = [
       "accent": "#2b6e3f",
       "surface": "rgba(255,255,255,.18)",
       "glow": "rgba(43,110,63,.24)"
-    }
+    },
+    "excerptChars": 275,
+    "sourcePoemChars": 1495
   },
   {
     "id": "emerson-ode-to-beauty",
@@ -1357,7 +1409,7 @@ const POEMS = [
     "author": "Ross Gay",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/fig-tree-9th-and-christian",
-    "text": "",
+    "text": "Tumbling through the\ncity in my\nmind without once\nlooking up\nthe racket in\nthe lugwork probably\nrehearsing some\nstupid thing I\nsaid or did\nsome crime or\nother the city they\nsay is a lonely\nplace until yes\nthe sound of sweeping\nand a woman\nyes with a\nbroom beneath…",
     "slot": 73,
     "palette": {
       "paper": "#f3d21b",
@@ -1367,7 +1419,9 @@ const POEMS = [
       "accent": "#9b2d18",
       "surface": "rgba(255,255,255,.2)",
       "glow": "rgba(155,45,24,.22)"
-    }
+    },
+    "excerptChars": 263,
+    "sourcePoemChars": 2683
   },
   {
     "id": "dickinson-could-hope-inspect-her-basis",
@@ -1394,7 +1448,7 @@ const POEMS = [
     "author": "Ada Limón",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/praise-mystery-poem-europa",
-    "text": "",
+    "text": "Arching under the night sky inky\nwith black expansiveness, we point\nto the planets we know, we\npin quick wishes on stars. From earth,\nwe read the sky as if it is an unerring book\nof the universe, expert and evident.\nStill, there are mysteries below our sky:…",
     "slot": 75,
     "palette": {
       "paper": "#f3d21b",
@@ -1404,7 +1458,9 @@ const POEMS = [
       "accent": "#9b2d18",
       "surface": "rgba(255,255,255,.2)",
       "glow": "rgba(155,45,24,.22)"
-    }
+    },
+    "excerptChars": 257,
+    "sourcePoemChars": 809
   },
   {
     "id": "rossetti-a-birthday",
@@ -1431,7 +1487,7 @@ const POEMS = [
     "author": "Ada Limón",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/when-it-comes-down-it",
-    "text": "",
+    "text": "Trip the door to stick,\nwe with the bag mouths\nyawping in the blank\nspace where our joy\nonce lived, little blooming\nweed, purple dead nettle\nwhere have you gone…",
     "slot": 77,
     "palette": {
       "paper": "#f3d21b",
@@ -1441,7 +1497,9 @@ const POEMS = [
       "accent": "#9b2d18",
       "surface": "rgba(255,255,255,.2)",
       "glow": "rgba(155,45,24,.22)"
-    }
+    },
+    "excerptChars": 160,
+    "sourcePoemChars": 328
   },
   {
     "id": "whitman-passage-to-india",
@@ -1468,7 +1526,7 @@ const POEMS = [
     "author": "Ada Limón",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/it-begins-trees",
-    "text": "",
+    "text": "Two full cypress trees in the clearing\nintertwine in a way that almost makes\nthem seem like one. Until at a certain angle\nfrom the blue blow-up pool I bought\nthis summer to save my life, I see it\nis not one tree, but two, and they are\nkissing. They are kissing so tenderly…",
     "slot": 79,
     "palette": {
       "paper": "#f3d21b",
@@ -1478,7 +1536,9 @@ const POEMS = [
       "accent": "#9b2d18",
       "surface": "rgba(255,255,255,.2)",
       "glow": "rgba(155,45,24,.22)"
-    }
+    },
+    "excerptChars": 272,
+    "sourcePoemChars": 844
   },
   {
     "id": "poe-the-city-in-the-sea",
@@ -1505,7 +1565,7 @@ const POEMS = [
     "author": "Ada Limón",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/drowning-creek",
-    "text": "",
+    "text": "Past the strip malls and the power plants,\nout of the holler, past Gun Bottom Road\nand Brassfield and before Red Lick Creek,\nthere’s a stream called Drowning Creek where\nI saw the prettiest bird I’d seen all year,\nthe belted kingfisher, crested in its Aegean…",
     "slot": 81,
     "palette": {
       "paper": "#f3d21b",
@@ -1515,7 +1575,9 @@ const POEMS = [
       "accent": "#9b2d18",
       "surface": "rgba(255,255,255,.2)",
       "glow": "rgba(155,45,24,.22)"
-    }
+    },
+    "excerptChars": 258,
+    "sourcePoemChars": 1229
   },
   {
     "id": "hopkins-moonrise",
@@ -1542,7 +1604,7 @@ const POEMS = [
     "author": "Ada Limón",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/salvage-0",
-    "text": "",
+    "text": "On the top of Mount Pisgah, on the western\nslope of the Mayacamas, there’s a madrone\ntree that’s half-burned from the fires, half-alive\nfrom nature’s need to propagate. One side\nof her is black ash and at her root is what\nlooks like a cavity that was hollowed out…",
     "slot": 83,
     "palette": {
       "paper": "#f3d21b",
@@ -1552,7 +1614,9 @@ const POEMS = [
       "accent": "#9b2d18",
       "surface": "rgba(255,255,255,.2)",
       "glow": "rgba(155,45,24,.22)"
-    }
+    },
+    "excerptChars": 263,
+    "sourcePoemChars": 907
   },
   {
     "id": "browning-lord-walter-s-wife",
@@ -1579,7 +1643,7 @@ const POEMS = [
     "author": "Ada Limón",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/lover-2",
-    "text": "",
+    "text": "Easy light storms in through the window, soft\nedges of the world, smudged by mist, a squirrel’s\nnest rigged high in the maple. I’ve got a bone\nto pick with whomever is in charge. All year,\nI’ve said, You know what’s funny? and then,\nNothing, nothing is funny. Which makes me laugh…",
     "slot": 85,
     "palette": {
       "paper": "#e7c79d",
@@ -1589,7 +1653,9 @@ const POEMS = [
       "accent": "#285a76",
       "surface": "rgba(255,255,255,.18)",
       "glow": "rgba(40,90,118,.22)"
-    }
+    },
+    "excerptChars": 280,
+    "sourcePoemChars": 1177
   },
   {
     "id": "bronte-death",
@@ -1616,7 +1682,7 @@ const POEMS = [
     "author": "Jane Hirshfield",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/i-speak-future",
-    "text": "",
+    "text": "We sit on our skeletons’ bones. We hear with our skeletons’ bones.We speak of beauty by moving our jaws and our teeth.The original meaning of Paradise: a place, a walled garden. Our lives, our stories, this hour inside one.A staircase from Piranesi. A hummingbird…",
     "slot": 87,
     "palette": {
       "paper": "#e7c79d",
@@ -1626,7 +1692,9 @@ const POEMS = [
       "accent": "#285a76",
       "surface": "rgba(255,255,255,.18)",
       "glow": "rgba(40,90,118,.22)"
-    }
+    },
+    "excerptChars": 263,
+    "sourcePoemChars": 708
   },
   {
     "id": "wilde-ballade-de-marguerite-normande",
@@ -1653,7 +1721,7 @@ const POEMS = [
     "author": "Jane Hirshfield",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/counting-new-years-morning-what-powers-yet-remain-me",
-    "text": "",
+    "text": "The world asks, as it asks daily:\nAnd what can you make, can you do, to change my deep-broken, fractured?\nI count, this first day of another year, what remains.\nI have a mountain, a kitchen, two hands.\nCan admire with two eyes the mountain,…",
     "slot": 89,
     "palette": {
       "paper": "#e7c79d",
@@ -1663,7 +1731,9 @@ const POEMS = [
       "accent": "#285a76",
       "surface": "rgba(255,255,255,.18)",
       "glow": "rgba(40,90,118,.22)"
-    }
+    },
+    "excerptChars": 240,
+    "sourcePoemChars": 1102
   },
   {
     "id": "emerson-to-eva",
@@ -1690,7 +1760,7 @@ const POEMS = [
     "author": "Jane Hirshfield",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/words-1",
-    "text": "",
+    "text": "Words are loyal.Whatever they name they take the side of.As the word courage will afterward grip just as well the frightened girl soldier who stands on one side of barbed…",
     "slot": 91,
     "palette": {
       "paper": "#e7c79d",
@@ -1700,7 +1770,9 @@ const POEMS = [
       "accent": "#285a76",
       "surface": "rgba(255,255,255,.18)",
       "glow": "rgba(40,90,118,.22)"
-    }
+    },
+    "excerptChars": 170,
+    "sourcePoemChars": 353
   },
   {
     "id": "dickinson-success-is-counted-sweetest",
@@ -1727,7 +1799,7 @@ const POEMS = [
     "author": "Jane Hirshfield",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/my-debt",
-    "text": "",
+    "text": "Like all\nwho believe in the senses,\nI was an accountant,\ncopyist,\nstatistician.\nNot registrar,\nwitness.\nPermitted to touch\nthe leaf of a thistle,\nthe trembling\nwork of a spider.\nTo ponder the Hubble’s recordings.\nIt did not matter\nif I believed in…",
     "slot": 93,
     "palette": {
       "paper": "#e7c79d",
@@ -1737,7 +1809,9 @@ const POEMS = [
       "accent": "#285a76",
       "surface": "rgba(255,255,255,.18)",
       "glow": "rgba(40,90,118,.22)"
-    }
+    },
+    "excerptChars": 247,
+    "sourcePoemChars": 732
   },
   {
     "id": "rossetti-later-life",
@@ -1764,7 +1838,7 @@ const POEMS = [
     "author": "Jane Hirshfield",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/others-0",
-    "text": "",
+    "text": "In the end,\nI was like others.\nA person.\nSometimes embarrassed,\nsometimes afraid.…",
     "slot": 95,
     "palette": {
       "paper": "#e7c79d",
@@ -1774,7 +1848,9 @@ const POEMS = [
       "accent": "#285a76",
       "surface": "rgba(255,255,255,.18)",
       "glow": "rgba(40,90,118,.22)"
-    }
+    },
+    "excerptChars": 81,
+    "sourcePoemChars": 168
   },
   {
     "id": "whitman-spain-1873-74",
@@ -1801,7 +1877,7 @@ const POEMS = [
     "author": "Jane Hirshfield",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/vest",
-    "text": "",
+    "text": "I put on again the vest of many pockets.\nIt is easy to forget\nwhich holds the reading glasses,\nwhich the small pen,\nwhich the house keys,\nthe compass and whistle, the passport.\nTo forget at last for weeks\neven the pocket holding the day\nof digging a place for my sister’s ashes,…",
     "slot": 97,
     "palette": {
       "paper": "#e99b62",
@@ -1811,7 +1887,9 @@ const POEMS = [
       "accent": "#5b285f",
       "surface": "rgba(255,255,255,.16)",
       "glow": "rgba(91,40,95,.22)"
-    }
+    },
+    "excerptChars": 278,
+    "sourcePoemChars": 1172
   },
   {
     "id": "poe-bridal-ballad",
@@ -1838,7 +1916,7 @@ const POEMS = [
     "author": "Naomi Shihab Nye",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/no-explosions",
-    "text": "",
+    "text": "To enjoyfireworksyou would haveto…",
     "slot": 99,
     "palette": {
       "paper": "#e99b62",
@@ -1848,7 +1926,9 @@ const POEMS = [
       "accent": "#5b285f",
       "surface": "rgba(255,255,255,.16)",
       "glow": "rgba(91,40,95,.22)"
-    }
+    },
+    "excerptChars": 33,
+    "sourcePoemChars": 68
   },
   {
     "id": "hopkins-to-what-serves-mortal-beauty",
@@ -1875,7 +1955,7 @@ const POEMS = [
     "author": "Naomi Shihab Nye",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/village-west-bank",
-    "text": "",
+    "text": "Untitled Document\nOne little boy writing a book,\n“making pictures for it too,” he said over Zoom,\nproud face bright as an apple in my screen.\n“It’s about a problem,” he smiled shyly\nin that occupied land where soldiers sneak around at night…",
     "slot": 101,
     "palette": {
       "paper": "#e99b62",
@@ -1885,7 +1965,9 @@ const POEMS = [
       "accent": "#5b285f",
       "surface": "rgba(255,255,255,.16)",
       "glow": "rgba(91,40,95,.22)"
-    }
+    },
+    "excerptChars": 240,
+    "sourcePoemChars": 1549
   },
   {
     "id": "browning-sonnet-33-yes-call-me-by-my-pet-name-let-me-hear",
@@ -1912,7 +1994,7 @@ const POEMS = [
     "author": "Naomi Shihab Nye",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/one-boy-told-me",
-    "text": "",
+    "text": "Music lives inside my legs.\nIt’s coming out when I talk.\nI’m going to send my valentines\nto people you don’t even know.\nOatmeal cookies make my throat gallop.\nGrown-ups keep their feet on the ground\nwhen they swing. I hate that.\nLook at those 2 o’s with a smash in the middle––…",
     "slot": 103,
     "palette": {
       "paper": "#e99b62",
@@ -1922,7 +2004,9 @@ const POEMS = [
       "accent": "#5b285f",
       "surface": "rgba(255,255,255,.16)",
       "glow": "rgba(91,40,95,.22)"
-    }
+    },
+    "excerptChars": 277,
+    "sourcePoemChars": 1657
   },
   {
     "id": "bronte-a-day-dream",
@@ -1949,7 +2033,7 @@ const POEMS = [
     "author": "Naomi Shihab Nye",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/empty-0",
-    "text": "",
+    "text": "I don’t want to see\nwhat spilled out,\nblue clay jug of dreams…",
     "slot": 105,
     "palette": {
       "paper": "#e99b62",
@@ -1959,7 +2043,9 @@ const POEMS = [
       "accent": "#5b285f",
       "surface": "rgba(255,255,255,.16)",
       "glow": "rgba(91,40,95,.22)"
-    }
+    },
+    "excerptChars": 61,
+    "sourcePoemChars": 137
   },
   {
     "id": "wilde-nay-lord-not-thus-white-lilies-in-the-spring",
@@ -1986,7 +2072,7 @@ const POEMS = [
     "author": "Naomi Shihab Nye",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/my-memories-live-my-mothers-phone",
-    "text": "",
+    "text": "Her dress shimmered tiny pink and green flower gardens\nlike a tablecloth in a rural twentieth century\nAmerican farmhouse, something tender\nyou never saw since you were a child too,\npleats and folds along the bodice,\ntucks and stitchery made with a patience…",
     "slot": 107,
     "palette": {
       "paper": "#e99b62",
@@ -1996,7 +2082,9 @@ const POEMS = [
       "accent": "#5b285f",
       "surface": "rgba(255,255,255,.16)",
       "glow": "rgba(91,40,95,.22)"
-    }
+    },
+    "excerptChars": 256,
+    "sourcePoemChars": 671
   },
   {
     "id": "wheatley-to-the-honourable-t-h-esq-on-the-death-of-his-daugh",
@@ -2023,7 +2111,7 @@ const POEMS = [
     "author": "Naomi Shihab Nye",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/what-she-said",
-    "text": "",
+    "text": "A woman on a plane said No!\nWe didn’t want your bombs\nand guns. We didn’t want them\nsetting up camps\nmaking secret plans\ncrisscrossing our mountains\ndressed in combat gear.\nThose helicopters scared us.\nWe wanted girls in school, yes,…",
     "slot": 109,
     "palette": {
       "paper": "#723d59",
@@ -2033,7 +2121,9 @@ const POEMS = [
       "accent": "#ffd166",
       "surface": "rgba(0,0,0,.12)",
       "glow": "rgba(255,209,102,.23)"
-    }
+    },
+    "excerptChars": 233,
+    "sourcePoemChars": 506
   },
   {
     "id": "blake-the-little-boy-found",
@@ -2060,7 +2150,7 @@ const POEMS = [
     "author": "Lucille Clifton",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/sal",
-    "text": "",
+    "text": "he ordered me to do what i would have done anyway i knew it as did he but always he had to order it so that he could tell himself he was with a woman who wanted him that this breast was a woman’s breast               it was…",
     "slot": 111,
     "palette": {
       "paper": "#723d59",
@@ -2070,7 +2160,9 @@ const POEMS = [
       "accent": "#ffd166",
       "surface": "rgba(0,0,0,.12)",
       "glow": "rgba(255,209,102,.23)"
-    }
+    },
+    "excerptChars": 223,
+    "sourcePoemChars": 450
   },
   {
     "id": "keats-written-on-a-summer-evening",
@@ -2097,7 +2189,7 @@ const POEMS = [
     "author": "Lucille Clifton",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/i-take-my-glasses",
-    "text": "",
+    "text": "it is the hardedge of thingsi am avoidingthe separationsso that i can take my glasses offand then i cannot tellwhich are the leavesand which the…",
     "slot": 113,
     "palette": {
       "paper": "#723d59",
@@ -2107,7 +2199,9 @@ const POEMS = [
       "accent": "#ffd166",
       "surface": "rgba(0,0,0,.12)",
       "glow": "rgba(255,209,102,.23)"
-    }
+    },
+    "excerptChars": 144,
+    "sourcePoemChars": 299
   },
   {
     "id": "burns-278-on-the-late-captain-grose-s-peregrinations",
@@ -2134,7 +2228,7 @@ const POEMS = [
     "author": "Lucille Clifton",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/blackgirl-looking-blackbird",
-    "text": "",
+    "text": "daughter of a darker eggshe names herselfblackbirdborn so beautifulthe birds fly northwhile she waits         lost fromparadisedreaming of returntime passesnew creators comeglowing like snowdeciding what…",
     "slot": 115,
     "palette": {
       "paper": "#723d59",
@@ -2144,7 +2238,9 @@ const POEMS = [
       "accent": "#ffd166",
       "surface": "rgba(0,0,0,.12)",
       "glow": "rgba(255,209,102,.23)"
-    }
+    },
+    "excerptChars": 203,
+    "sourcePoemChars": 427
   },
   {
     "id": "dunbar-merry-autumn",
@@ -2171,7 +2267,7 @@ const POEMS = [
     "author": "Lucille Clifton",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/my-dream-about-second-coming",
-    "text": "",
+    "text": "mary is an old woman without shoes.she doesn’t believe it.not when her belly starts to bubbleand leave the print of a finger whereno man touches.not when the snow in her hair melts away.not when…",
     "slot": 117,
     "palette": {
       "paper": "#723d59",
@@ -2181,7 +2277,9 @@ const POEMS = [
       "accent": "#ffd166",
       "surface": "rgba(0,0,0,.12)",
       "glow": "rgba(255,209,102,.23)"
-    }
+    },
+    "excerptChars": 194,
+    "sourcePoemChars": 395
   },
   {
     "id": "clare-what-is-life",
@@ -2208,7 +2306,7 @@ const POEMS = [
     "author": "Lucille Clifton",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/dream-foxes",
-    "text": "",
+    "text": "in the dream of foxesthere is a fieldand a procession of womenclean as good childrenno hollow in the worldsurrounded by dogsno fur…",
     "slot": 119,
     "palette": {
       "paper": "#723d59",
@@ -2218,7 +2316,9 @@ const POEMS = [
       "accent": "#ffd166",
       "surface": "rgba(0,0,0,.12)",
       "glow": "rgba(255,209,102,.23)"
-    }
+    },
+    "excerptChars": 130,
+    "sourcePoemChars": 263
   },
   {
     "id": "shakespeare-blow-blow-thou-winter-wind",
@@ -2245,7 +2345,7 @@ const POEMS = [
     "author": "Frank O’Hara",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/having-coke-you",
-    "text": "",
+    "text": "is even more fun than going to San Sebastian, Irún, Hendaye, Biarritz, Bayonne\nor being sick to my stomach on the Travesera de Gracia in Barcelona\npartly because in your orange shirt you look like a better happier St. Sebastian…",
     "slot": 121,
     "palette": {
       "paper": "#25304d",
@@ -2255,7 +2355,9 @@ const POEMS = [
       "accent": "#ffcb69",
       "surface": "rgba(0,0,0,.14)",
       "glow": "rgba(255,203,105,.24)"
-    }
+    },
+    "excerptChars": 227,
+    "sourcePoemChars": 1838
   },
   {
     "id": "levy-a-minor-poet",
@@ -2282,7 +2384,7 @@ const POEMS = [
     "author": "Frank O’Hara",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/why-i-am-not-painter",
-    "text": "",
+    "text": "I am not a painter, I am a poet.\nWhy? I think I would rather be\na painter, but I am not. Well,\nfor instance, Mike Goldberg\nis starting a painting. I drop in.\n“Sit down and have a drink” he\nsays. I drink; we drink. I look\nup. “You have SARDINES in it.”…",
     "slot": 123,
     "palette": {
       "paper": "#25304d",
@@ -2292,7 +2394,9 @@ const POEMS = [
       "accent": "#ffcb69",
       "surface": "rgba(0,0,0,.14)",
       "glow": "rgba(255,203,105,.24)"
-    }
+    },
+    "excerptChars": 251,
+    "sourcePoemChars": 967
   },
   {
     "id": "stevenson-the-summer-sun-shone-round-me",
@@ -2319,7 +2423,7 @@ const POEMS = [
     "author": "Frank O’Hara",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/day-lady-died",
-    "text": "",
+    "text": "It is 12:20 in New York a Friday\nthree days after Bastille day, yes\nit is 1959 and I go get a shoeshine\nbecause I will get off the 4:19 in Easthampton\nat 7:15 and then go straight to dinner\nand I don't know the people who will feed me\nI walk up the muggy street beginning to sun…",
     "slot": 125,
     "palette": {
       "paper": "#25304d",
@@ -2329,7 +2433,9 @@ const POEMS = [
       "accent": "#ffcb69",
       "surface": "rgba(0,0,0,.14)",
       "glow": "rgba(255,203,105,.24)"
-    }
+    },
+    "excerptChars": 278,
+    "sourcePoemChars": 1343
   },
   {
     "id": "dickinson-musicians-wrestle-everywhere",
@@ -2356,7 +2462,7 @@ const POEMS = [
     "author": "Frank O’Hara",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/personal-poem",
-    "text": "",
+    "text": "Now when I walk around at lunchtime\nI have only two charms in my pocket\nan old Roman coin Mike Kanemitsu gave me\nand a bolt-head that broke off a packing case\nwhen I was in Madrid the others never\nbrought me too much luck though they did\nhelp keep me in New York against coercion…",
     "slot": 127,
     "palette": {
       "paper": "#25304d",
@@ -2366,7 +2472,9 @@ const POEMS = [
       "accent": "#ffcb69",
       "surface": "rgba(0,0,0,.14)",
       "glow": "rgba(255,203,105,.24)"
-    }
+    },
+    "excerptChars": 279,
+    "sourcePoemChars": 1398
   },
   {
     "id": "rossetti-monna-innominata-a-sonnet-of-sonnets",
@@ -2393,7 +2501,7 @@ const POEMS = [
     "author": "Frank O’Hara",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/ave-maria",
-    "text": "",
+    "text": "Mothers of America\nlet your kids go to the movies!\nget them out of the house so they won’t know what you’re up to\nit’s true that fresh air is good for the body\nbut what about the soul\nthat grows in darkness, embossed by silvery images\nand when you grow old as grow old you must…",
     "slot": 129,
     "palette": {
       "paper": "#25304d",
@@ -2403,7 +2511,9 @@ const POEMS = [
       "accent": "#ffcb69",
       "surface": "rgba(0,0,0,.14)",
       "glow": "rgba(255,203,105,.24)"
-    }
+    },
+    "excerptChars": 277,
+    "sourcePoemChars": 2234
   },
   {
     "id": "whitman-o-sun-of-real-peace",
@@ -2430,7 +2540,7 @@ const POEMS = [
     "author": "Joy Harjo",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/without",
-    "text": "",
+    "text": "The world will keep trudging through time without us\nWhen we lift from the story contest to fly home\nWe will be as falling stars to those watching from the edge\nOf grief and heartbreak\nMaybe then we will see the design of the two-minded creature…",
     "slot": 131,
     "palette": {
       "paper": "#25304d",
@@ -2440,7 +2550,9 @@ const POEMS = [
       "accent": "#ffcb69",
       "surface": "rgba(0,0,0,.14)",
       "glow": "rgba(255,203,105,.24)"
-    }
+    },
+    "excerptChars": 245,
+    "sourcePoemChars": 633
   },
   {
     "id": "poe-the-valley-of-unrest",
@@ -2467,7 +2579,7 @@ const POEMS = [
     "author": "Joy Harjo",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/how-write-poem-time-war",
-    "text": "",
+    "text": "You can’t begin just anywhere. It’s a wreck.\nShrapnel and the eye\nOf a house, a row of houses. There’s a rat scrambling\nFrom light with fleshy trash in its mouth. A baby strapped\nto its mother’s back, cut loose.\nSoldiers crawl the city,\nthe river, the town, the village,…",
     "slot": 133,
     "palette": {
       "paper": "#0b1525",
@@ -2477,7 +2589,9 @@ const POEMS = [
       "accent": "#83c5be",
       "surface": "rgba(255,255,255,.07)",
       "glow": "rgba(131,197,190,.23)"
-    }
+    },
+    "excerptChars": 270,
+    "sourcePoemChars": 3089
   },
   {
     "id": "hopkins-to-a-young-child",
@@ -2504,7 +2618,7 @@ const POEMS = [
     "author": "Joy Harjo",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/american-sunrise",
-    "text": "",
+    "text": "We were running out of breath, as we ran out to meet ourselves. We\nWere surfacing the edge of our ancestors’ fights, and ready to Strike.\nIt was difficult to lose days in the Indian bar if you were Straight.\nEasy if you played pool and drank to remember to forget. We…",
     "slot": 135,
     "palette": {
       "paper": "#0b1525",
@@ -2514,7 +2628,9 @@ const POEMS = [
       "accent": "#83c5be",
       "surface": "rgba(255,255,255,.07)",
       "glow": "rgba(131,197,190,.23)"
-    }
+    },
+    "excerptChars": 267,
+    "sourcePoemChars": 900
   },
   {
     "id": "browning-the-cry-of-the-children",
@@ -2541,7 +2657,7 @@ const POEMS = [
     "author": "Joy Harjo",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/eagle-poem",
-    "text": "",
+    "text": "To pray you open your whole self\nTo sky, to earth, to sun, to moon\nTo one whole voice that is you.\nAnd know there is more\nThat you can't see, can't hear,\nCan't know except in moments\nSteadily growing, and in languages\nThat aren't always sound but other\nCircles of motion.…",
     "slot": 137,
     "palette": {
       "paper": "#0b1525",
@@ -2551,7 +2667,9 @@ const POEMS = [
       "accent": "#83c5be",
       "surface": "rgba(255,255,255,.07)",
       "glow": "rgba(131,197,190,.23)"
-    }
+    },
+    "excerptChars": 271,
+    "sourcePoemChars": 741
   },
   {
     "id": "bronte-faith-and-despondency",
@@ -2578,7 +2696,7 @@ const POEMS = [
     "author": "Stanley Kunitz",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/passing-through-0",
-    "text": "",
+    "text": "—on my seventy-ninth birthdayNobody in the widow’s householdever celebrated anniversaries. In the secrecy of my room I would not admit I cared that my friends were given parties. Before I left town for school my birthday went up in smoke in a fire at City Hall that gutted the…",
     "slot": 139,
     "palette": {
       "paper": "#0b1525",
@@ -2588,7 +2706,9 @@ const POEMS = [
       "accent": "#83c5be",
       "surface": "rgba(255,255,255,.07)",
       "glow": "rgba(131,197,190,.23)"
-    }
+    },
+    "excerptChars": 276,
+    "sourcePoemChars": 1007
   },
   {
     "id": "wilde-serenade-for-music",
@@ -2615,7 +2735,7 @@ const POEMS = [
     "author": "Stanley Kunitz",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/abduction",
-    "text": "",
+    "text": "Some things I do not profess\nto understand, perhaps\nnot wanting to, including\nwhatever it was they did\nwith you or you with them\nthat timeless summer day\nwhen you stumbled out of the wood,\ndistracted, with your white blouse torn\nand a bloodstain on your skirt.…",
     "slot": 141,
     "palette": {
       "paper": "#0b1525",
@@ -2625,7 +2745,9 @@ const POEMS = [
       "accent": "#83c5be",
       "surface": "rgba(255,255,255,.07)",
       "glow": "rgba(131,197,190,.23)"
-    }
+    },
+    "excerptChars": 260,
+    "sourcePoemChars": 1454
   },
   {
     "id": "wheatley-to-a-lady-and-her-children",
@@ -2652,7 +2774,7 @@ const POEMS = [
     "author": "Stanley Kunitz",
     "source": "Academy of American Poets",
     "sourceUrl": "https://poets.org/poem/layers",
-    "text": "",
+    "text": "I have walked through many lives,some of them my own,and I am not who I was,though some principle of beingabides, from which I strugglenot to stray.When I look behind,as I am compelled to lookbefore I can gather strengthto proceed on my journey,I see the milestones…",
     "slot": 143,
     "palette": {
       "paper": "#0b1525",
@@ -2662,6 +2784,8 @@ const POEMS = [
       "accent": "#83c5be",
       "surface": "rgba(255,255,255,.07)",
       "glow": "rgba(131,197,190,.23)"
-    }
+    },
+    "excerptChars": 265,
+    "sourcePoemChars": 1047
   }
 ];
