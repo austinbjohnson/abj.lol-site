@@ -244,6 +244,8 @@
       const permalink = document.getElementById("permalink");
       const localTime = document.getElementById("local-time");
       const anotherPoem = document.getElementById("another-poem");
+      let currentPoemId = null;
+      let rotationTimer = null;
 
       function tenMinuteSlot(date) {
         return (date.getHours() * 6) + Math.floor(date.getMinutes() / 10);
@@ -282,6 +284,7 @@
       }
 
       function renderPoem(poem, updateUrl) {
+        currentPoemId = poem.id;
         const now = new Date();
         const isLinkedPoem = poem.format === "linked";
         resetInlinePalette();
@@ -304,8 +307,9 @@
 
 
       anotherPoem.addEventListener("click", () => {
-        const currentId = new URLSearchParams(window.location.search).get("poem");
-        const choices = poems.filter((poem) => poem.id !== currentId);
+        window.clearInterval(rotationTimer);
+        rotationTimer = null;
+        const choices = poems.filter((poem) => poem.id !== currentPoemId);
         renderPoem(choices[Math.floor(Math.random() * choices.length)] || poems[0], true);
       });
 
@@ -313,7 +317,7 @@
       renderPoem(initialPermalinkPoem || selectedPoem(new Date()), Boolean(initialPermalinkPoem));
 
       if (!initialPermalinkPoem) {
-        window.setInterval(() => renderPoem(selectedPoem(new Date()), false), 60000);
+        rotationTimer = window.setInterval(() => renderPoem(selectedPoem(new Date()), false), 60000);
       }
     })();
   </script>
